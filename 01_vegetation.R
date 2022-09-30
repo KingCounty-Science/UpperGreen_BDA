@@ -13,8 +13,49 @@ library(readxl) #To read the excel file
 excel_sheets("data/Vegetation Monitoring Data_testcopy.xlsx")
 
 # read in the worksheet with the isotope data
-spcover <- read_excel("data/Vegetation Monitoring Data_testcopy.xlsx", sheet = "DATA_SPCOVER")
+cover <- read_excel("data/Vegetation Monitoring Data_testcopy.xlsx", sheet = "DATA_SPCOVER")
+vegnames <- read_excel("data/Vegetation Monitoring Data_testcopy.xlsx", sheet = "VegetationList")
+
+spcover <- left_join(cover, vegnames, by = "species_code")
 
 head(spcover) #check info.
 
-# Get some summary values
+# QA/QC
+# Do species code groups and common name groups match?
+spcover %>% 
+  group_by(species_code) %>% 
+  summarise(freq = n()) 
+
+spcover %>% 
+  group_by(common_name) %>% 
+  summarise(freq = n()) 
+
+#what species don't have a common name?
+spcover %>% 
+  select(resort, plotID, scientific_name, common_name) %>% 
+  filter(is.na(common_name))
+
+#plot the frequency of occurrence by code (#code from )
+spcover %>% 
+  group_by(species_code) %>%
+  summarise(freq = n()) %>% 
+  ggplot(aes(x = reorder(species_code, freq), 
+             y = freq)) + 
+  geom_col(alpha = 0.85, show.legend = FALSE) +     
+  labs(y = "count of observations",
+       x = NULL) + 
+  theme_minimal() +  
+  theme(axis.text.x = element_text(size = 8)) + 
+  coord_flip()
+
+#plot the frequency of occurrence with common names (Beka's code (difference is geom_bar vs geom_col)
+spcover %>% 
+  group_by(common_name) %>%
+  summarise(freq = n()) %>% 
+  ggplot(aes(x = reorder(common_name, freq), y = freq)) +
+  geom_bar(stat = "identity") + 
+  labs(y = "count of observations",
+       x = NULL) + 
+  scale_y_continuous(2, labels, limits)
+  coord_flip() + 
+  theme_minimal()
