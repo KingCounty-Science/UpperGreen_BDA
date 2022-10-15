@@ -62,3 +62,11 @@ p1<-spcover %>%
 p1
 
 ggsave("figs/plant observation frequency.png",p1,  width = 6, height = 6, units = "in" )
+
+#Obtain list of plants for next data sheet.
+observations<-spcover %>% 
+  group_by(species_code) %>%
+  summarise(freq = n())
+
+obs_fullnames <-left_join(observations, vegnames, by = "species_code")
+write_csv(obs_fullnames, "tables/common plant species.csv")
