@@ -20,6 +20,8 @@ spcover <- left_join(cover, vegnames, by = "species_code")
 
 head(spcover) #check info.
 
+spcover %>% filter(is.na(common_name)) %>% pull(species_code)
+
 # QA/QC
 # Do species code groups and common name groups match?
 spcover %>% 
@@ -56,12 +58,12 @@ p1<-spcover %>%
   geom_bar(stat = "identity") + 
   labs(y = "count of observations",
        x = NULL) + 
-  scale_y_continuous(breaks=seq(1,11,by=1))+
+  scale_y_continuous(breaks=seq(0,28,by=2))+
   coord_flip() + 
   theme_minimal()
 p1
 
-ggsave("figs/plant observation frequency.png",p1,  width = 6, height = 6, units = "in" )
+ggsave("figs/plant observation frequency.png",p1,  width = 6, height = 8, units = "in" )
 
 #Obtain list of plants for next data sheet.
 observations<-spcover %>% 
@@ -70,3 +72,4 @@ observations<-spcover %>%
 
 obs_fullnames <-left_join(observations, vegnames, by = "species_code")
 write_csv(obs_fullnames, "tables/common plant species.csv")
+
