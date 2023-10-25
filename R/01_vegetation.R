@@ -8,13 +8,14 @@
 library(tidyverse)  # for data wrangling, analysis, and plotting
 library(readxl) #To read the excel file
 
+xcelfilename <- "data/Vegetation Monitoring Data_2023-10-24.xlsx"
 
 # Review the sheet names in order to select the correct one.  
-excel_sheets("data/Vegetation Monitoring Data_testcopy.xlsx")
+excel_sheets(xcelfilename)
 
 # read in the worksheet with the isotope data
-cover <- read_excel("data/Vegetation Monitoring Data_testcopy.xlsx", sheet = "DATA_SPCOVER")
-vegnames <- read_excel("data/Vegetation Monitoring Data_testcopy.xlsx", sheet = "VegetationList")
+cover <- read_excel(xcelfilename, sheet = "DATA_SPCOVER")
+vegnames <- read_excel(xcelfilename, sheet = "VegetationList")
 
 spcover <- left_join(cover, vegnames, by = "species_code")
 
@@ -34,7 +35,7 @@ spcover %>%
 
 #what species don't have a common name?
 spcover %>% 
-  select(resort, plotID, scientific_name, common_name) %>% 
+  select(resort, plot_id, scientific_name, common_name) %>% 
   filter(is.na(common_name))
 
 #plot the frequency of occurrence by code (#code from )
@@ -71,5 +72,5 @@ observations<-spcover %>%
   summarise(freq = n())
 
 obs_fullnames <-left_join(observations, vegnames, by = "species_code")
-write_csv(obs_fullnames, "tables/common plant species.csv")
+write_csv(obs_fullnames, "tables/common plant species-2023-10-24.csv")
 
