@@ -8,7 +8,7 @@
 library(tidyverse)  # for data wrangling, analysis, and plotting
 library(readxl) #To read the excel file
 
-xcelfilename <- "data/Vegetation Monitoring Data_2023-10-24.xlsx"
+xcelfilename <- "data/Vegetation Monitoring Data_2023-11-01.xlsx"
 
 # Review the sheet names in order to select the correct one.  
 excel_sheets(xcelfilename)
@@ -72,5 +72,5 @@ observations<-spcover %>%
   summarise(freq = n())
 
 obs_fullnames <-left_join(observations, vegnames, by = "species_code")
-write_csv(obs_fullnames, "tables/common plant species-2023-10-24.csv")
+write_csv(obs_fullnames, "tables/common plant species-2023-11-01.csv")
 
