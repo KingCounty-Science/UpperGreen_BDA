@@ -1,0 +1,98 @@
+species_code,freq,scientific_name,common_name,vegetation_type,beaver_preference,observation_date,papersheet_id
+ABAM,25,Abies amabilis,Pacific silver fir,tree,NA,NA,NA
+ACCI,26,Acer circinatum,vine maple,NA,NA,NA,NA
+ACEL,1,Actaea elata,bugbane,NA,NA,NA,NA
+ACRU,3,Actaea rubra,red baneberry,NA,NA,NA,NA
+ACTR,33,Achlys triphylla,vanilla leaf,NA,NA,NA,NA
+ADAL,4,Adiantum aleuticum,maiden hair fern,NA,NA,NA,NA
+ADBI,16,Adenocaulon bicolor,trail plant or pathfinder,NA,NA,NA,NA
+ALRU,12,Alnus rubra,red alder,tree,NA,NA,NA
+ANXXSP,1,Angelica sp.,angelica species,NA,NA,NA,NA
+ARDI,1,Aruncus dioicus,goatsbeard,NA,NA,NA,NA
+ASCA,7,Asaram caudatum,wild ginger,NA,NA,NA,NA
+ATFE,76,Athyrium filix-femina,lady fern,NA,NA,NA,NA
+BRVU,3,Bromus vulgaris,Columbia Brome,NA,NA,NA,NA
+BRXXSP,4,Bromus sp.,Bromus species - grasses,NA,NA,NA,NA
+CAHA,1,Carex Hendersonii,Henderson Sedge,NA,NA,NA,NA
+CAXXSP,8,Carex sp.,carex sp - sedges,NA,NA,NA,NA
+CHUM,3,Chimaphyla umbellata,pipsissewa,NA,NA,NA,NA
+CIAL,30,Circaea alpina,alpine enchanter's nightshade,NA,NA,NA,NA
+CIBR,1,Cirsium brevistylum ,short-styled thistle,NA,NA,NA,NA
+CIDO,1,Cicuta douglasii,water hemlock,NA,NA,NA,NA
+CLSI,14,Claytonia sibirica,miners lettuce or candy flower,NA,NA,NA,NA
+CLUN,23,Clintonia uniflora,queens cups,NA,NA,NA,NA
+COSC,30,Corydalis scouleri,corydalis,NA,NA,NA,NA
+COUN,24,Cornus unalaschkensis,bunchberry,NA,NA,NA,NA
+DIFO,2,Dicentra formosa,bleeding heart,NA,NA,NA,NA
+DRAR,9,Dryopteris arguta,wood fern,NA,NA,NA,NA
+DREX,34,Dryopteris expansa,spreading wood fern,NA,NA,NA,NA
+EPCI,1,Epilobium ciliatum,Epilobium?,NA,NA,NA,NA
+EQXXSP,11,Equisetum sp.,horsetail species,NA,NA,NA,NA
+FRPU,1,Frangula purshiana,cascara,NA,NA,NA,NA
+GASH,10,Gaultheria shallon,salal,NA,NA,NA,NA
+GATR,43,Galium triflorum,galium,NA,NA,NA,NA
+GERO,1,Geranium robertianum,herb robert aka stinky bob,NA,NA,NA,NA
+GLXXSP,1,Glyceria sp.,glyciria species,NA,NA,NA,NA
+GOOB,34,Goodyera oblongifolia,rattlesnake plantain,NA,NA,NA,NA
+GYDI,51,Gymnocarpium disjunctum,oak fern,NA,NA,NA,NA
+HILA,4,Hieracium lachenalii,common hawkweed,NA,NA,NA,NA
+HUMI,1,Huechera micrantha,crevice alumroot,NA,NA,NA,NA
+HUOC,1,Huperzia occidentalis,Pacific clubmoss,NA,NA,NA,NA
+HYTE,39,Hydrophyllum tenuipes,Pacific waterleaf,NA,NA,NA,NA
+LUPA,5,Luzula parviflora,small-flowered woodrush,NA,NA,NA,NA
+LYAM,37,Lysichiton americanus,skunk cabbage,NA,NA,NA,NA
+LYNU,1,Lysimachia nummularia,creeping jenny,NA,NA,NA,NA
+MADI,61,Maianthemum dilatatum,false lily of the valley,NA,NA,NA,NA
+MANE,18,Mahonia nervosa ,low oregon grape,NA,NA,NA,NA
+MARA,2,Maianthemum racemosum,false Soloman's seal,NA,NA,NA,NA
+MAST,38,Maianthemum stellatum,star-flowered Solomon's seal,NA,NA,NA,NA
+MICA,18,Mitellastra caulescens,mitrewort,NA,NA,NA,NA
+MOUN,6,Monotropa uniflora,ghost pipe,NA,NA,NA,NA
+MYMU,8,Mycelis muralis,wall lettuce,NA,NA,NA,NA
+OESA,3,Oenanthe sarmentosa,water parsley,NA,NA,NA,NA
+OPHO,90,Oplopanax horridus,devil's club,NA,NA,NA,NA
+OSBE,6,Osmorhiza berteroi,sweet-cicely,NA,NA,NA,NA
+OXTR,5,Oxalis trilliifolia,trillium-leaved oxalis,NA,NA,NA,NA
+PEFR,3,Petasites frigidus var. palmatus,western coltsfoot,NA,NA,NA,NA
+PISI,2,Picea sitchensis,sitka spruce,tree,NA,NA,NA
+POACAE,1,NA,poa species,NA,NA,NA,NA
+POGL,10,Polypodium glycyrrhiza,licorice fern,NA,NA,NA,NA
+POMU,87,Polystichum munitum,sword fern,NA,NA,NA,NA
+PRHO,13,Prosartes hookeri,Hooker's fairy bell,NA,NA,NA,NA
+PRSM,1,NA,NA,NA,NA,NA,NA
+PRXXSP,1,Prunus sp.,cherry species,NA,NA,NA,NA
+PSME,48,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,NA
+PTAQ,5,Pteridium aquilinum,bracken fern,NA,NA,NA,NA
+RHME,59,Rhododendron menziesii,false azalea or azalea,NA,NA,NA,NA
+RIBR,41,Ribes bracteosum,stink currant,NA,NA,NA,NA
+ROGY,7,Rosa gymnocarpa,Rosa gymnocarpa?,NA,NA,NA,NA
+ROXXSP,2,Rosa sp.,Rosa species,NA,NA,NA,NA
+RULE,1,Rubus leucodermis ,blackcap raspberry,NA,NA,NA,NA
+RUNI,1,Rubus nivalis,snow raspberry,NA,NA,NA,NA
+RUPA,8,Rubus parviflorus,thimbleberry,NA,NA,NA,NA
+RUPE,27,Rubus pedatus,creeping raspberry,shrub,NA,NA,NA
+RUSP,60,Rubus spectabilis,salmonberry,NA,preferred,NA,NA
+RUUR,13,Rubus ursinus,trailing blackberry,NA,NA,NA,NA
+SARA,38,Sambucus racemosa,red elderberry,NA,highly preferred,NA,NA
+SCMI,2,Scirpus microcarpus,small fruited bulrush,NA,NA,NA,NA
+STAM,1,Streptopus amplexifolius,twistedstalk,NA,NA,NA,NA
+STCO,13,Stachys cooleyae,Cooley's Hedge-nettle,NA,NA,NA,NA
+STLA,1,Streptopus lanceolatus,rosy twisted stalk,NA,NA,NA,NA
+STSP,69,Struthiopteris spicant,deer fern,NA,NA,NA,NA
+STXXSP,2,Streptopus sp.,twistedstalk species,NA,NA,NA,NA
+STXXSP,2,Streptopus sp.,Streptopus species,NA,NA,NA,NA
+TABR,2,Taxus brevifolia,Pacific yew,tree,NA,NA,NA
+TEGR,7,Tellima grandiflora,fringecup,NA,NA,NA,NA
+THPL,35,Thuja plicata,western redcedar,tree,NA,NA,NA
+TITR,89,Tiarella trifoliata,foam flower,NA,NA,NA,NA
+TOME,52,Tolmiea menziesii,piggyback plant,NA,NA,NA,NA
+TROV,22,Trillium ovatum,trillium,NA,NA,NA,NA
+TSHE,78,Tsuga heterophylla,western hemlock,tree,NA,NA,NA
+VAOV,16,Vaccinium ovalifolium,Oval-leaved huckleberry,NA,NA,NA,NA
+VAPA,77,Vaccinium parvifolium,red huckleberry,NA,NA,NA,NA
+VIXXSP,62,Viola sp.,violet species,NA,NA,NA,NA
+fernXX,1,NA,unknown fern species,NA,NA,NA,NA
+grassy thing,7,grassy thing,grassy thing,NA,NA,NA,NA
+schoolers,1,NA,NA,NA,NA,NA,NA
+strepto-bismal,10,NA,Streptopus sp or Prosartes sp or Maianthemum stellata,NA,NA,NA,NA
+twisted fairybells,5,NA,Streptopus sp or Prosartes sp or Maianthemum stellata,NA,NA,NA,NA

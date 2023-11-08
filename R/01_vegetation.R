@@ -48,22 +48,12 @@ head(spcov_df)
 head(totcov_df)
 head(trnk_df)
 head(veglst_df)
-## end
 
-xcelfilename <- "data/Vegetation Monitoring Data_2023-11-01.xlsx"
-
-# Review the sheet names in order to select the correct one.  
-excel_sheets(xcelfilename)
-
-# read in the worksheet with the isotope data
-cover <- read_excel(xcelfilename, sheet = "DATA_SPCOVER")
-vegnames <- read_excel(xcelfilename, sheet = "VegetationList")
-
-spcover <- left_join(cover, vegnames, by = "species_code")
+spcover <- left_join(spcov_df, veglst_df, by = "species_code")
 
 head(spcover) #check info.
 
-spcover %>% filter(is.na(common_name)) %>% pull(species_code)
+spcover %>% filter(is.na(common_name)) %>% pull(species_code) %>% unique()
 
 # QA/QC
 # Do species code groups and common name groups match?
@@ -103,7 +93,8 @@ p1<-spcover %>%
        x = NULL) + 
   scale_y_continuous(breaks=seq(0,28,by=2))+
   coord_flip() + 
-  theme_minimal()
+  theme_minimal() +
+  drop_na()
 p1
 
 ggsave("figs/plant observation frequency.png",p1,  width = 6, height = 8, units = "in" )
@@ -113,6 +104,6 @@ observations<-spcover %>%
   group_by(species_code) %>%
   summarise(freq = n())
 
-obs_fullnames <-left_join(observations, vegnames, by = "species_code")
-write_csv(obs_fullnames, "tables/common plant species-2023-11-01.csv")
+obs_fullnames <-left_join(observations, veglst_df, by = "species_code")
+write_csv(obs_fullnames, "tables/common plant species-2023-11-08.csv")
 
