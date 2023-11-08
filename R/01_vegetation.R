@@ -4,9 +4,51 @@
 # This script explores a preliminary set of vegetation data
 #=== === === === === === === ===
 
-# Load relevant packages
-library(tidyverse)  # for data wrangling, analysis, and plotting
-library(readxl) #To read the excel file
+# load relevant packages
+library(Microsoft365R) #for accessing sharepoint
+library(readxl) #for reading excel files
+library(janitor) #for cleaning names
+library(tidyverse) #for wrangling and plotting
+
+#identify which site I need data from
+site <- get_sharepoint_site("DNRP Beavers")
+
+# default is the document library
+drv <- site$get_drive()
+
+#This downloads the file to the project folder (I had to know the pathway from Teams/Sharepoint)
+drv$download_file("Upper Green/03_Data/vegetation/Vegetation Monitoring Data.xlsx")
+
+#Because this downloads to my project working directory, I will read in the data, then delete the raw file shortly. I do not want any versions of the data stored in my project. They need to stay in sharepoint.
+
+# Review the sheet names in order to select the correct one.  
+excel_sheets("Vegetation Monitoring Data.xlsx")
+
+# read in the data, all three sheets
+spcov_df<-read_excel("Vegetation Monitoring Data.xlsx", 
+                     sheet = "DATA_SPCOVER", 
+                     .name_repair = make_clean_names)
+
+totcov_df<-read_excel("Vegetation Monitoring Data.xlsx", 
+                       sheet = "DATA_TOTALCOVER", 
+                       .name_repair = make_clean_names)
+
+trnk_df<-read_excel("Vegetation Monitoring Data.xlsx", 
+                        sheet = "DATA_TRUNK", 
+                        .name_repair = make_clean_names)
+
+veglst_df<-read_excel("Vegetation Monitoring Data.xlsx", 
+                    sheet = "VegetationList", 
+                    .name_repair = make_clean_names)
+
+#Removes the file from my working directory. 
+file.remove("Vegetation Monitoring Data.xlsx")
+
+head(spcov_df)
+head(totcov_df)
+head(trnk_df)
+head(veglst_df)
+## end
 
 xcelfilename <- "data/Vegetation Monitoring Data_2023-11-01.xlsx"
 
