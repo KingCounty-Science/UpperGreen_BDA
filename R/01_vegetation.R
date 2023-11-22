@@ -24,7 +24,7 @@ drv$download_file("Upper Green/03_Data/vegetation/Vegetation Monitoring Data.xls
 # Review the sheet names in order to select the correct one.  
 excel_sheets("Vegetation Monitoring Data.xlsx")
 
-# read in the data, all three sheets
+# read in the data, all sheets
 spcov_df<-read_excel("Vegetation Monitoring Data.xlsx", 
                      sheet = "DATA_SPCOVER", 
                      .name_repair = make_clean_names)
