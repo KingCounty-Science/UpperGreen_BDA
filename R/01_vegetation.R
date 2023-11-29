@@ -87,14 +87,14 @@ spcover %>%
 p1<-spcover %>% 
   group_by(common_name) %>%
   summarise(freq = n()) %>% 
+  drop_na() %>% 
   ggplot(aes(x = reorder(common_name, freq), y = freq)) +
   geom_bar(stat = "identity") + 
   labs(y = "count of observations",
        x = NULL) + 
   scale_y_continuous(breaks=seq(0,28,by=2))+
   coord_flip() + 
-  theme_minimal() +
-  drop_na()
+  theme_minimal() 
 p1
 
 ggsave("figs/plant observation frequency.png",p1,  width = 6, height = 8, units = "in" )
@@ -105,5 +105,5 @@ observations<-spcover %>%
   summarise(freq = n())
 
 obs_fullnames <-left_join(observations, veglst_df, by = "species_code")
-write_csv(obs_fullnames, "tables/common plant species-2023-11-08.csv")
+write_csv(obs_fullnames, "tables/common plant species-2023-11-29.csv")
 

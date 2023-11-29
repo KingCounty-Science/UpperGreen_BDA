@@ -39,9 +39,9 @@ HILA,4,Hieracium lachenalii,common hawkweed,NA,NA,NA,NA
 HUMI,1,Huechera micrantha,crevice alumroot,NA,NA,NA,NA
 HUOC,1,Huperzia occidentalis,Pacific clubmoss,NA,NA,NA,NA
 HYTE,39,Hydrophyllum tenuipes,Pacific waterleaf,NA,NA,NA,NA
+LIBO,2,Linnea borealis,twinflower,NA,NA,NA,NA
 LUPA,5,Luzula parviflora,small-flowered woodrush,NA,NA,NA,NA
 LYAM,37,Lysichiton americanus,skunk cabbage,NA,NA,NA,NA
-LYNU,1,Lysimachia nummularia,creeping jenny,NA,NA,NA,NA
 MADI,61,Maianthemum dilatatum,false lily of the valley,NA,NA,NA,NA
 MANE,18,Mahonia nervosa ,low oregon grape,NA,NA,NA,NA
 MARA,2,Maianthemum racemosum,false Soloman's seal,NA,NA,NA,NA
@@ -79,8 +79,9 @@ STAM,1,Streptopus amplexifolius,twistedstalk,NA,NA,NA,NA
 STCO,13,Stachys cooleyae,Cooley's Hedge-nettle,NA,NA,NA,NA
 STLA,1,Streptopus lanceolatus,rosy twisted stalk,NA,NA,NA,NA
 STSP,69,Struthiopteris spicant,deer fern,NA,NA,NA,NA
-STXXSP,2,Streptopus sp.,twistedstalk species,NA,NA,NA,NA
 STXXSP,2,Streptopus sp.,Streptopus species,NA,NA,NA,NA
+STXXSP,2,Streptopus sp.,twistedstalk species,NA,NA,NA,NA
+STXXSP/PRXXSP,15,Streptopus sp. or Prosartes sp.,twistedstalk or fairy bells,NA,NA,NA,NA
 TABR,2,Taxus brevifolia,Pacific yew,tree,NA,NA,NA
 TEGR,7,Tellima grandiflora,fringecup,NA,NA,NA,NA
 THPL,35,Thuja plicata,western redcedar,tree,NA,NA,NA
@@ -94,5 +95,3 @@ VIXXSP,62,Viola sp.,violet species,NA,NA,NA,NA
 fernXX,1,NA,unknown fern species,NA,NA,NA,NA
 grassy thing,7,grassy thing,grassy thing,NA,NA,NA,NA
 schoolers,1,NA,NA,NA,NA,NA,NA
-strepto-bismal,10,NA,Streptopus sp or Prosartes sp or Maianthemum stellata,NA,NA,NA,NA
-twisted fairybells,5,NA,Streptopus sp or Prosartes sp or Maianthemum stellata,NA,NA,NA,NA
