@@ -70,7 +70,14 @@ spcover %>%
   select(resort, plot_id, scientific_name, common_name) %>% 
   filter(is.na(common_name))
 
-#plot the frequency of occurrence by code (#code from )
+#convert trace to .1 for plotting
+spcover$percent_cover_num<-str_replace(spcover$percent_cover, "trace", "1" )
+spcover$percent_cover_num <- as.numeric(spcover$percent_cover_num)
+
+#create an extra column with the transect/dist combo
+spcover$circle_name <- str_sub(spcover$plot_id, start = 6, end = 9)
+
+#plot the frequency of occurrence by code 
 spcover %>% 
   group_by(species_code) %>%
   summarise(freq = n()) %>% 
@@ -83,7 +90,7 @@ spcover %>%
   theme(axis.text.x = element_text(size = 8)) + 
   coord_flip()
 
-#plot the frequency of occurrence with common names (Beka's code (difference is geom_bar vs geom_col)
+#plot the frequency of occurrence with common names (difference is geom_bar vs geom_col)
 p1<-spcover %>% 
   group_by(common_name) %>%
   summarise(freq = n()) %>% 
@@ -92,12 +99,27 @@ p1<-spcover %>%
   geom_bar(stat = "identity") + 
   labs(y = "count of observations",
        x = NULL) + 
-  scale_y_continuous(breaks=seq(0,28,by=2))+
+  scale_y_continuous(breaks=seq(0,100,by=5))+
   coord_flip() + 
   theme_minimal() 
 p1
 
-ggsave("figs/plant observation frequency.png",p1,  width = 6, height = 8, units = "in" )
+ggsave("figs/plant observation frequency_common.tiff",p1,  width = 7.5, height = 8, units = "in" )
+
+p2<-spcover %>% 
+  group_by(scientific_name) %>%
+  summarise(freq = n()) %>% 
+  drop_na() %>% 
+  ggplot(aes(x = reorder(scientific_name, freq), y = freq)) +
+  geom_bar(stat = "identity") + 
+  labs(y = "count of observations",
+       x = NULL) + 
+  scale_y_continuous(breaks=seq(0,100,by=5))+
+  coord_flip() + 
+  theme_minimal() 
+p2
+
+ggsave("figs/plant observation frequency_sci.tiff",p2,  width = 7.5, height = 8, units = "in" )
 
 #Obtain list of plants for next data sheet.
 observations<-spcover %>% 
@@ -105,5 +127,121 @@ observations<-spcover %>%
   summarise(freq = n())
 
 obs_fullnames <-left_join(observations, veglst_df, by = "species_code")
-write_csv(obs_fullnames, "tables/common plant species-2023-11-29.csv")
+write_csv(obs_fullnames, "tables/common plant species-2024-07-03.csv")
+
+
+ggplot(data = spcover %>% 
+         group_by(reach, common_name) %>% 
+         summarise(freq = n()) %>% 
+         drop_na(),
+       aes(x = reorder(common_name, freq), y = freq)) +
+  geom_bar(stat = "identity") + 
+  labs(y = "count of observations",
+       x = NULL) + 
+  scale_y_continuous(breaks=seq(0,28,by=2))+
+  coord_flip() + 
+  theme_minimal() +
+  facet_grid(cols = vars(reach))
+ggsave("figs/plant observation frequency_reach_common.tiff",  width = 10, height = 8, units = "in" )
+
+
+ggplot(data = spcover %>% 
+         group_by(reach, scientific_name) %>% 
+         summarise(freq = n()) %>% 
+         drop_na(),
+       aes(x = reorder(scientific_name, freq), y = freq)) +
+  geom_bar(stat = "identity") + 
+  labs(y = "count of observations",
+       x = NULL) + 
+  scale_y_continuous(breaks=seq(0,28,by=2))+
+  coord_flip() + 
+  theme_minimal() +
+  facet_grid(cols = vars(reach))
+ggsave("figs/plant observation frequency_reach_sci.tiff",  width = 10, height = 8, units = "in" )
+
+##The histograms track the frequently occurring species.
+## What about the most abundant species? How often do species cover a lot of the plot?
+
+spcover %>% 
+  filter(vegetation_type != "tree" | is.na(vegetation_type)) %>% 
+  filter(percent_cover_num > 30) %>% 
+  group_by(common_name) %>% 
+  summarise(freq = n()) %>% 
+  drop_na() %>% 
+  ggplot(aes(x = reorder(common_name, freq), y = freq)) +
+  geom_bar(stat = "identity") + 
+  labs(y = "count of observations",
+       x = NULL) + 
+  scale_y_continuous(breaks=seq(0,100,by=5))+
+  coord_flip() + 
+  theme_minimal() 
+
+# what is the average amount of cover for a common species ####
+
+#first, what are the most commonly occuring species that are trees and that are not trees
+#trees 
+treelist<-spcover %>% 
+  filter(vegetation_type == "tree") %>% 
+  group_by(scientific_name) %>%
+  summarise(freq = n()) %>% 
+  drop_na() %>% 
+  pull(scientific_name )
+#there are only 8 trees, so we could filter for these 
+spcover_trees<-spcover %>% 
+  filter(scientific_name %in% treelist)
+
+ggplot(spcover_trees, aes(x = reorder(scientific_name, percent_cover_num),  y = percent_cover_num)) + 
+  geom_boxplot() +
+  facet_grid(~reach) + 
+  coord_flip() +
+  labs(y = "percent cover (%)",
+       x = "tree species") +
+  theme_bw()
+ggsave("figs/treecover_sci.tiff",  width = 10, height = 8, units = "in" )
+
+
+#start looking at the breakdown of species on the ground
+ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
+  geom_bar(stat = "identity", width = 1, position = position_fill()) +
+  coord_polar(theta = "y") + 
+  facet_grid(cols = vars(reach), vars(dist))
+
+ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
+  geom_bar(stat = "identity", width = 1, position = position_fill()) +
+  coord_polar(theta = "y") + 
+  facet_grid(cols = vars(reach), vars(transect))
+
+ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
+  geom_bar(stat = "identity", width = 1, position = position_fill()) +
+  coord_polar(theta = "y") + 
+  facet_grid(vars(reach), vars(circle_name))
+
+ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
+  geom_bar(stat = "identity", width = 1, position = position_fill()) +
+  coord_polar(theta = "y") + 
+  facet_wrap(~plot_id)
+
+#geom_col adds up th
+ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
+  geom_col() +
+  facet_grid(cols = vars(reach), vars(transect))
+
+#geom_col adds up th
+ggplot(spcover, aes(x = plot_id, y = percent_cover_num, fill = common_name)) + 
+  geom_col() +
+  facet_grid(cols = vars(reach), vars(dist()))
+
+#what if we converted the things that we see in trace amounts to "other" and then highlighted the most common things
+
+ggplot(spcover, aes(x = common_name)) + 
+  geom_bar() +
+  facet_grid(cols = vars(reach), vars(dist))
+
+# I think this could be a good place for patchwork. I make 4 sets of 24 charts then combine.
+
+ggplot(data = spcover %>% filter(reach == "WillowNorth"), 
+       aes(x = common_name, y = percent_cover_num)) +
+  geom_col() +
+  facet_wrap(~circle_name, ncol = 6)
+
 
