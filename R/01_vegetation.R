@@ -9,6 +9,7 @@ library(Microsoft365R) #for accessing sharepoint
 library(readxl) #for reading excel files
 library(janitor) #for cleaning names
 library(tidyverse) #for wrangling and plotting
+library(patchwork) # for multipanel plotting
 
 #identify which site I need data from
 site <- get_sharepoint_site("DNRP Beavers")
@@ -121,6 +122,14 @@ p2
 
 ggsave("figs/plant observation frequency_sci.tiff",p2,  width = 7.5, height = 8, units = "in" )
 
+#capture the reordered list:
+spec_arranged<-spcover %>% 
+  group_by(scientific_name) %>%
+  summarise(freq = n()) %>% 
+  drop_na() %>%
+  arrange(freq) %>% 
+  pull(scientific_name)
+
 #Obtain list of plants for next data sheet.
 observations<-spcover %>% 
   group_by(species_code) %>%
@@ -190,6 +199,26 @@ treelist<-spcover %>%
 spcover_trees<-spcover %>% 
   filter(scientific_name %in% treelist)
 
+#what about making a percent cover plot that mirrors the frequency of the occurance
+A<-ggplot(spcover %>% 
+         drop_na(scientific_name) %>% 
+         mutate(scientific_name = fct_relevel(scientific_name, spec_arranged)),
+       aes(x = scientific_name,  y = percent_cover_num)) + 
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "percent cover (%)",
+       x = "species") +
+  theme_bw()
+A
+ggsave("figs/avecov_sci.tiff", A, width = 10, height = 8, units = "in" )
+
+B <-p2 + scale_y_continuous(breaks=seq(0,100,by=10)) + labs(y = "count of observations",
+                                                              x = "species")
+C <- A + labs(y = "percent cover (%)",
+                x = NULL)
+B + C + plot_annotation(tag_levels = "A")
+ggsave("figs/freq_ave_sci.tiff", width = 10, height = 10, units = "in" )
+
 ggplot(spcover_trees, aes(x = reorder(scientific_name, percent_cover_num),  y = percent_cover_num)) + 
   geom_boxplot() +
   facet_grid(~reach) + 
@@ -197,7 +226,6 @@ ggplot(spcover_trees, aes(x = reorder(scientific_name, percent_cover_num),  y = 
   labs(y = "percent cover (%)",
        x = "tree species") +
   theme_bw()
-ggsave("figs/treecover_sci.tiff",  width = 10, height = 8, units = "in" )
 
 
 #start looking at the breakdown of species on the ground
@@ -233,9 +261,6 @@ ggplot(spcover, aes(x = plot_id, y = percent_cover_num, fill = common_name)) +
 
 #what if we converted the things that we see in trace amounts to "other" and then highlighted the most common things
 
-ggplot(spcover, aes(x = common_name)) + 
-  geom_bar() +
-  facet_grid(cols = vars(reach), vars(dist))
 
 # I think this could be a good place for patchwork. I make 4 sets of 24 charts then combine.
 
@@ -244,4 +269,29 @@ ggplot(data = spcover %>% filter(reach == "WillowNorth"),
   geom_col() +
   facet_wrap(~circle_name, ncol = 6)
 
+
+### Total Cover ####
+plot_info <-spcover %>% select(plot_id, region, reach, question, treatment, transect, dist, circle_name) %>% unique()
+
+totcov_df %>%
+  group_by_all() %>%
+  filter(n()>1)
+
+totcov<-left_join(x = totcov_df, y = plot_info, by = "plot_id")
+
+head(totcov_df)
+
+plot_info %>%
+  group_by(plot_id) %>%
+  filter(n()>1)
+
+ggplot(totcov, 
+       aes(x = dist,  y = total_cover )) + 
+  geom_boxplot(aes(group = cut_width(dist, 50))) + # I need this line otherwise it blends the numeric data
+  labs(y = "overal canopy cover (%)",
+       x = "distance from water's edge (ft) ") +
+  scale_x_continuous(breaks=(c(20, 75, 130))) +
+  theme_bw()
+
+ggsave("figs/canopy_cover_dist.tiff", width = 6, height = 6, units = "in" )
 
