@@ -295,3 +295,21 @@ ggplot(totcov,
 
 ggsave("figs/canopy_cover_dist.tiff", width = 6, height = 6, units = "in" )
 
+ggplot(totcov, 
+       aes(x = dist,  y = total_cover )) + 
+  geom_boxplot(aes(group = cut_width(dist, 50))) + # I need this line otherwise it blends the numeric data
+  labs(y = "overal canopy cover (%)",
+       x = "distance from water's edge (ft) ") +
+  scale_x_continuous(breaks=(c(20, 75, 130))) +
+  facet_grid(~reach)+
+  theme_bw()
+
+ggplot(totcov, 
+       aes(x = dist,  y = total_cover )) + 
+  geom_point() + # I need this line otherwise it blends the numeric data
+  labs(y = "overal canopy cover (%)",
+       x = "distance from water's edge (ft) ") +
+  scale_x_continuous(breaks=(c(20, 75, 130))) +
+  facet_grid(~reach)+
+  theme_bw()
+
