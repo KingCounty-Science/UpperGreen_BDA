@@ -168,6 +168,21 @@ ggplot(data = spcover %>%
   facet_grid(cols = vars(reach))
 ggsave("figs/plant observation frequency_reach_sci.tiff",  width = 10, height = 8, units = "in" )
 
+#what about distance from water's edge
+ggplot(data = spcover %>% 
+         group_by(dist, scientific_name) %>% 
+         summarise(freq = n()) %>% 
+         drop_na(),
+       aes(x = reorder(scientific_name, freq), y = freq)) +
+  geom_bar(stat = "identity") + 
+  labs(y = "count of observations",
+       x = NULL) + 
+  scale_y_continuous(breaks=seq(0,28,by=2))+
+  coord_flip() + 
+  theme_minimal() +
+  facet_grid(cols = vars(dist))
+ggsave("figs/plant observation frequency_dist_sci.tiff",  width = 10, height = 8, units = "in" )
+
 ##The histograms track the frequently occurring species.
 ## What about the most abundant species? How often do species cover a lot of the plot?
 
@@ -221,7 +236,15 @@ ggsave("figs/freq_ave_sci.tiff", width = 10, height = 10, units = "in" )
 
 ggplot(spcover_trees, aes(x = reorder(scientific_name, percent_cover_num),  y = percent_cover_num)) + 
   geom_boxplot() +
-  facet_grid(~reach) + 
+  facet_grid(~dist) + 
+  coord_flip() +
+  labs(y = "percent cover (%)",
+       x = "tree species") +
+  theme_bw()
+
+ggplot(spcover, aes(x = reorder(scientific_name, percent_cover_num),  y = percent_cover_num)) + 
+  geom_boxplot() +
+  facet_grid(~dist) + 
   coord_flip() +
   labs(y = "percent cover (%)",
        x = "tree species") +
