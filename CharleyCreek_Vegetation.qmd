@@ -5,23 +5,51 @@ format: pdf
 editor: visual
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
 ```{r}
-1 + 1
+#| warning: false
+#| echo: false
+
+# load relevant packages
+library(tidyverse) #for wrangling and plotting
+library(patchwork) # for multipanel plotting
+
+#load data for publication
+spcover_q<-read_csv("data/spcover.csv")
+
+
 ```
 
-You can add options to executable code like this
+## Introduction
+
+Vegetation percent cover surveys for this project were designed to estimate the quantities of beaver-preferred woody and herbaceous plant species along stream reaches.
+
+## Methods
+
+### Study area
+
+These surveys occured in the Upper Green River Watershed, characterized by managed forest, limited human infrastructure, and no cell service. The Charley Creek Natural Area is DNR land ....
+
+### Survey
+
+Along eight transects perpendicular to each reach, we completed three 20-ft radius circular plots accounting for at least 10% of the site area. Within each reach, 8 circular plots were completed at 20 feet from water's edge, four of them on the right bank and four along the left bank. Beyond each plot located at 20, another was located along the same transect at 75 and 130ft. (FIGURE) Within each circle plot we estimated percent cover for all tree, shrub, and herbaceous plants species (excluding moss), noted observations of beaver and elk browse according to plant species, and recorded individual tree trunk size. Last, we estimated overall cover for each plot.
+
+## Findings
 
 ```{r}
 #| echo: false
-2 * 2
+obscount <-spcover_q  %>%  
+  select(observation_date.only)   %>% 
+  n_distinct() 
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+We completed  `r obscount`surveys in 
+
+```{r}
+#| echo: false
+speciescount <-spcover_q |> 
+  select(species_code)  |>
+  n_distinct() 
+```
+
+
+Teams observed `r speciescount` different species in
