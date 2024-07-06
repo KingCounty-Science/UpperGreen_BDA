@@ -10,6 +10,7 @@ library(readxl) #for reading excel files
 library(janitor) #for cleaning names
 library(tidyverse) #for wrangling and plotting
 library(patchwork) # for multipanel plotting
+library(lubridate) #for transitioning posix to date
 
 #identify which site I need data from
 site <- get_sharepoint_site("DNRP Beavers")
@@ -52,31 +53,17 @@ head(veglst_df)
 
 spcover <- left_join(spcov_df, veglst_df, by = "species_code")
 
-head(spcover) #check info.
-
-spcover %>% filter(is.na(common_name)) %>% pull(species_code) %>% unique()
-
-# QA/QC
-# Do species code groups and common name groups match?
-spcover %>% 
-  group_by(species_code) %>% 
-  summarise(freq = n()) 
-
-spcover %>% 
-  group_by(common_name) %>% 
-  summarise(freq = n()) 
-
-#what species don't have a common name?
-spcover %>% 
-  select(resort, plot_id, scientific_name, common_name) %>% 
-  filter(is.na(common_name))
-
-#convert trace to .1 for plotting
-spcover$percent_cover_num<-str_replace(spcover$percent_cover, "trace", "1" )
-spcover$percent_cover_num <- as.numeric(spcover$percent_cover_num)
+spcover$percent_cover_num<-str_replace(spcover$percent_cover, "trace", "1" ) #convert trace to 1% for plotting
+spcover$percent_cover_num <- as.numeric(spcover$percent_cover_num) #convert column to numeric
 
 #create an extra column with the transect/dist combo
 spcover$circle_name <- str_sub(spcover$plot_id, start = 6, end = 9)
+
+spcover$observation_date.only <-as_date(spcover$observation_date.x)
+
+## WRITE TO CSV FOR QUARTO ####
+write_csv(x = spcover,file = "data/spcover.csv")
+
 
 #plot the frequency of occurrence by code 
 spcover %>% 
