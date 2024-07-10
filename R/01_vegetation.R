@@ -64,6 +64,14 @@ spcover$observation_date.only <-as_date(spcover$observation_date.x)
 ## WRITE TO CSV FOR QUARTO ####
 write_csv(x = spcover,file = "data/spcover.csv")
 
+# summary of events
+spcover  %>%  
+  select(reach, plot_id)   %>% 
+  unique() %>% 
+  group_by( reach) %>% 
+  summarise(freq = n()) %>% 
+  filter(freq != 24) %>% 
+  pull(reach)
 
 #plot the frequency of occurrence by code 
 spcover %>% 
