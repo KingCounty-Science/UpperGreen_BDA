@@ -6,6 +6,7 @@ editor: visual
 ---
 
 ```{r}
+#| label: load-packages
 #| warning: false
 #| echo: false
 
@@ -21,35 +22,114 @@ spcover_q<-read_csv("data/spcover.csv")
 
 ## Introduction
 
-Vegetation percent cover surveys for this project were designed to estimate the quantities of beaver-preferred woody and herbaceous plant species along stream reaches.
+Vegetation surveys for this project were designed to estimate the quantities of beaver-preferred woody and herbaceous plant species along stream reaches.
 
 ## Methods
 
 ### Study area
 
-These surveys occured in the Upper Green River Watershed, characterized by managed forest, limited human infrastructure, and no cell service. The Charley Creek Natural Area is DNR land ....
+These surveys occurred in the Upper Green River Watershed, characterized by managed forest and limited human infrastructure. The Charley Creek Natural Area is DNR land ....
+
+Four study reaches were selected for slope, and length.
 
 ### Survey
 
-Along eight transects perpendicular to each reach, we completed three 20-ft radius circular plots accounting for at least 10% of the site area. Within each reach, 8 circular plots were completed at 20 feet from water's edge, four of them on the right bank and four along the left bank. Beyond each plot located at 20, another was located along the same transect at 75 and 130ft. (FIGURE) Within each circle plot we estimated percent cover for all tree, shrub, and herbaceous plants species (excluding moss), noted observations of beaver and elk browse according to plant species, and recorded individual tree trunk size. Last, we estimated overall cover for each plot.
+We estimated percent cover for all tree, shrub, and herbaceous plants species (excluding moss) in 20-ft radius plots along each reach. In addition, within each plot we noted observations of beaver and elk browse according to plant species, recorded individual tree trunk sizes and estimated overall tree canopy cover. We considered percent cover to be the portion of the plot covered by the full extent of the above ground foliage of plants of the same species combined then recorded as a single estimate. We included any part of the foliage within the plot, even if the stem/trunk was out of the plot. All tree trunk sizes were recorded as diameter at breast height (DBH) using diameter tapes wrapped around the tree truck at 4 feet above the forest floor. If a tree was not yet four feet it was counted an recorded as a sapling.
+
+We located the plots by first delineating pairs of 150-ft transects on opposite banks and perpendicular to flow at four locations along each reach. Pairs of transects were located at the most upstream and downstream end of the reach and within the reach at locations about 50-100 feet from the ends. Then, along each transects, 20-ft radius circular plots were centered at 20 ft, 75 ft, and 130 ft from water's edge (@fig-reach).
+
+![temporary file serving to demonstrate the reach and site locations](images/plot_locations_placeholder.png){#fig-reach}
 
 ## Findings
 
 ```{r}
 #| echo: false
-obscount <-spcover_q  %>%  
+n_plots <-spcover_q  %>%  
+  select(plot_id)   %>% 
+  n_distinct() 
+
+n_obs <-spcover_q  %>%  
   select(observation_date.only)   %>% 
   n_distinct() 
+
+n_reaches <-spcover_q  %>%  
+  select(reach)   %>% 
+  n_distinct() 
+
+name_reach<-spcover_q  %>%  
+  select(reach, plot_id)   %>% 
+  unique() %>% 
+  group_by( reach) %>% 
+  summarise(freq = n()) %>% 
+  filter(freq != 24) %>% 
+  pull(reach)
+
+num_reach<-spcover_q  %>%  
+  select(reach, plot_id)   %>% 
+  unique() %>% 
+  group_by( reach) %>% 
+  summarise(freq = n()) %>% 
+  filter(freq != 24) %>% 
+  pull(freq)
 ```
 
-We completed  `r obscount`surveys in 
+We completed surveys along `r n_reaches` reaches of the Charley Creek natural area totaling `r n_plots` plots over `r n_obs` sampling events which occurred during \[months of \] of 2022 and \[months of \] of 2023. We completed all 24 plots along three of the reaches and 22 plots along the fourth (`r name_reach`), where we excluded one plot that crossed a stream channel and a second with an active ground bee nest.
 
 ```{r}
 #| echo: false
-speciescount <-spcover_q |> 
-  select(species_code)  |>
+n_species <-spcover_q  %>%  
+  select(species_code)   %>% 
   n_distinct() 
+
+n_treesp <-spcover_q  %>%  
+  filter(vegetation_type == "tree") %>% 
+  select(species_code)   %>% 
+  n_distinct() 
+
+spec_arranged<-spcover_q %>% 
+  group_by(scientific_name) %>%
+  summarise(freq = n()) %>% 
+  drop_na() %>%
+  arrange(freq) %>% 
+  pull(scientific_name)
+
+
+
 ```
 
+```{r}
+#| label: fig-freq-cov
+#| fig-width: 7.5
+#| fig-cap: The frequency each plant species was observed across the 93 surveyed plots (A), alongside the median, first and third quantile of each observation (B). 
+#| echo: false
 
-Teams observed `r speciescount` different species in
+p1<-spcover_q %>% 
+  group_by(scientific_name) %>%
+  summarise(freq = n()) %>% 
+  drop_na() %>% 
+  ggplot(aes(x = reorder(scientific_name, freq), y = freq)) +
+  geom_bar(stat = "identity") + 
+  labs(y = "count of observations",
+       x = NULL) + 
+  scale_y_continuous(breaks=seq(0,100,by=5))+
+  coord_flip() + 
+  theme_minimal() + 
+  scale_y_continuous(breaks=seq(0,100,by=10)) + 
+  labs(y = "count of observations",
+       x = "species")
+
+p2 <-ggplot(spcover_q %>% 
+         drop_na(scientific_name) %>% 
+         mutate(scientific_name = fct_relevel(scientific_name, spec_arranged)),
+       aes(x = scientific_name,  y = percent_cover_num)) + 
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "percent cover (%)",
+       x = "species") +
+  theme_bw() +
+  labs(y = "percent cover (%)",
+                x = NULL)
+p1 + p2 + plot_annotation(tag_levels = "A")
+```
+
+Overall teams observed `r n_species` different species in the area, `r n_treesp` tree species and the rest shrubs and herbaceous plants (@fig-freq-cov). Trees covered.
