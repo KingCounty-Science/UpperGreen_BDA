@@ -53,7 +53,7 @@ head(veglst_df)
 
 spcover <- left_join(spcov_df, veglst_df, by = "species_code")
 
-spcover$percent_cover_num<-str_replace(spcover$percent_cover, "trace", "1" ) #convert trace to 1% for plotting
+spcover$percent_cover_num<-str_replace(spcover$percent_cover, "trace", ".5" ) #convert trace to 0.5% for plotting
 spcover$percent_cover_num <- as.numeric(spcover$percent_cover_num) #convert column to numeric
 
 #create an extra column with the transect/dist combo
@@ -331,3 +331,16 @@ ggplot(totcov,
   facet_grid(~reach)+
   theme_bw()
 
+cov_max <- spcover %>% 
+  select(percent_cover_num) %>% 
+  max()
+
+spcover %>% 
+  filter(percent_cover == "trace") %>% 
+  select(scientific_name) %>% 
+  distinct()
+
+spcover %>% 
+  filter(percent_cover == "1") %>% 
+  select(scientific_name) %>% 
+  distinct()

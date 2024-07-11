@@ -34,11 +34,13 @@ Four study reaches were selected for slope, and length.
 
 ### Survey
 
-We estimated percent cover for all tree, shrub, and herbaceous plants species (excluding moss) in 20-ft radius plots along each reach. In addition, within each plot we noted observations of beaver and elk browse according to plant species, recorded individual tree trunk sizes and estimated overall tree canopy cover. We considered percent cover to be the portion of the plot covered by the full extent of the above ground foliage of plants of the same species combined then recorded as a single estimate. We included any part of the foliage within the plot, even if the stem/trunk was out of the plot. All tree trunk sizes were recorded as diameter at breast height (DBH) using diameter tapes wrapped around the tree truck at 4 feet above the forest floor. If a tree was not yet four feet it was counted an recorded as a sapling.
+We conducted surveys during x dates and date. We estimated percent cover for all tree, shrub, and herbaceous plants species (excluding moss) in 20-ft radius plots along each reach. In addition, within each plot we noted observations of beaver and elk browse according to plant species, recorded individual tree trunk sizes and estimated overall tree canopy cover. We considered percent cover to be the portion of the plot covered by the full extent of the above ground foliage of plants of the same species combined then recorded as a single ocular estimate. We included any part of the foliage within the plot, even if the stem/trunk was out of the plot. When species occured in less than 1% of the plot, their presence was recorded as "trace." During analysis, occurrences of "trace" were converted to the numeric value of 1% to allow for quantifyingAll tree trunk sizes were recorded as diameter at breast height (DBH) using diameter tapes wrapped around the tree truck at 4 feet above the forest floor. If a tree was not yet four feet it was counted an recorded as a sapling.
 
 We located the plots by first delineating pairs of 150-ft transects on opposite banks and perpendicular to flow at four locations along each reach. Pairs of transects were located at the most upstream and downstream end of the reach and within the reach at locations about 50-100 feet from the ends. Then, along each transects, 20-ft radius circular plots were centered at 20 ft, 75 ft, and 130 ft from water's edge (@fig-reach).
 
 ![temporary file serving to demonstrate the reach and site locations](images/plot_locations_placeholder.png){#fig-reach}
+
+PCA to visualize similarities?
 
 ## Findings
 
@@ -93,7 +95,16 @@ spec_arranged<-spcover_q %>%
   arrange(freq) %>% 
   pull(scientific_name)
 
+spec_arranged<-spcover_q %>% 
+  group_by(scientific_name) %>%
+  summarise(freq = n()) %>% 
+  drop_na() %>%
+  arrange(freq) %>% 
+  pull(scientific_name)
 
+cov_max <- spcover_q %>% 
+  select(percent_cover_num) %>% 
+  max()
 
 ```
 
@@ -132,4 +143,12 @@ p2 <-ggplot(spcover_q %>%
 p1 + p2 + plot_annotation(tag_levels = "A")
 ```
 
-Overall teams observed `r n_species` different species in the area, `r n_treesp` tree species and the rest shrubs and herbaceous plants (@fig-freq-cov). Trees covered.
+Species richness
+
+Overall teams observed `r n_species` different species in the area, `r n_treesp` tree species and the rest shrubs and herbaceous plants (@fig-freq-cov). Coverage ranged from trace amounts (recorded as 0.5%) to `r cov_max`%.
+
+Herbivory
+
+Tree sizes
+
+Canopy cover
