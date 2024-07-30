@@ -30,17 +30,15 @@ Vegetation surveys for this project were designed to estimate the quantities of 
 
 These surveys occurred in the Upper Green River Watershed, characterized by managed forest and limited human infrastructure. The Charley Creek Natural Area is DNR land ....
 
-Four study reaches were selected for slope, and length.
+Four study reaches were selected for slope, and length. Etc Ect (map of reaches).
 
 ### Survey
 
-We conducted surveys during x dates and date. We estimated percent cover for all tree, shrub, and herbaceous plants species (excluding moss) in 20-ft radius plots along each reach. In addition, within each plot we noted observations of beaver and elk browse according to plant species, recorded individual tree trunk sizes and estimated overall tree canopy cover. We considered percent cover to be the portion of the plot covered by the full extent of the above ground foliage of plants of the same species combined then recorded as a single ocular estimate. We included any part of the foliage within the plot, even if the stem/trunk was out of the plot. When species occured in less than 1% of the plot, their presence was recorded as "trace." During analysis, occurrences of "trace" were converted to the numeric value of 1% to allow for quantifyingAll tree trunk sizes were recorded as diameter at breast height (DBH) using diameter tapes wrapped around the tree truck at 4 feet above the forest floor. If a tree was not yet four feet it was counted an recorded as a sapling.
+We conducted surveys in fall. We estimated percent cover for all tree, shrub, and herbaceous plants species (excluding moss) in 20-ft radius plots. In addition, within each plot we noted observations of beaver and elk browse according to plant species, recorded individual tree trunk sizes and estimated overall tree canopy cover. We considered percent cover to be the portion of the plot covered by the full extent of the above ground foliage of plants of the same species combined then recorded as a single ocular estimate. We included any part of the foliage within the plot, even if the stem/trunk was out of the plot. When species occurred in less than 1% of the plot, their presence was recorded as "trace." During analysis, we converted occurrences of "trace" to the numeric value of 0.5% to allow for the inclusion of trace observations during calculations. All tree trunk sizes were recorded as diameter at breast height (DBH) using diameter tapes wrapped around the tree truck at 4 feet above the forest floor. If a tree was not yet four feet tall it was counted and recorded as a sapling.
 
-We located the plots by first delineating pairs of 150-ft transects on opposite banks and perpendicular to flow at four locations along each reach. Pairs of transects were located at the most upstream and downstream end of the reach and within the reach at locations about 50-100 feet from the ends. Then, along each transects, 20-ft radius circular plots were centered at 20 ft, 75 ft, and 130 ft from water's edge (@fig-reach).
+We located the plots by first delineating eight 150-ft transects on opposite banks and perpendicular to flow beginning at four locations along each reach. Pairs of transects were located at the most upstream and downstream end of the reach and within the reach at locations about 50-100 feet from the ends. Then, along each transects, 20-ft radius circular plots were centered at 20 ft, 75 ft, and 130 ft from water's edge (@fig-reach).
 
 ![temporary file serving to demonstrate the reach and site locations](images/plot_locations_placeholder.png){#fig-reach}
-
-PCA to visualize similarities?
 
 ## Findings
 
@@ -75,12 +73,12 @@ num_reach<-spcover_q  %>%
   pull(freq)
 ```
 
-We completed surveys along `r n_reaches` reaches of the Charley Creek natural area totaling `r n_plots` plots over `r n_obs` sampling events which occurred during \[months of \] of 2022 and \[months of \] of 2023. We completed all 24 plots along three of the reaches and 22 plots along the fourth (`r name_reach`), where we excluded one plot that crossed a stream channel and a second with an active ground bee nest.
+We completed surveys along `r n_reaches` reaches of the Charley Creek natural area totaling `r n_plots` plots over `r n_obs` sampling events which occurred during the fall of `r year(min(spcover_q$observation_date.only))` and `r max(spcover_q$observation_date.only)`. We completed all 24 plots along three of the reaches and 22 plots along the fourth (`r name_reach`), where we excluded one plot that crossed a stream channel and a second with an active ground bee nest.
 
 ```{r}
 #| echo: false
-n_species <-spcover_q  %>%  
-  select(species_code)   %>% 
+n_species <-spcover_q %>%  
+  select(species_code) %>% 
   n_distinct() 
 
 n_treesp <-spcover_q  %>%  

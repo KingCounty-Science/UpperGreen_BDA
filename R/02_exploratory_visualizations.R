@@ -4,66 +4,15 @@
 # This script explores a preliminary set of vegetation data
 #=== === === === === === === ===
 
-# load relevant packages
-library(Microsoft365R) #for accessing sharepoint
-library(readxl) #for reading excel files
-library(janitor) #for cleaning names
+# load relevant packages ####
 library(tidyverse) #for wrangling and plotting
 library(patchwork) # for multipanel plotting
-library(lubridate) #for transitioning posix to date
 
-#identify which site I need data from
-site <- get_sharepoint_site("DNRP Beavers")
 
-# default is the document library
-drv <- site$get_drive()
+## read in the tidy data ####
+spcover<-read_csv(file = "data/spcover.csv")
 
-#This downloads the file to the project folder (I had to know the pathway from Teams/Sharepoint)
-drv$download_file("Upper Green/03_Data/vegetation/Vegetation Monitoring Data.xlsx")
-
-#Because this downloads to my project working directory, I will read in the data, then delete the raw file shortly. I do not want any versions of the data stored in my project. They need to stay in sharepoint.
-
-# Review the sheet names in order to select the correct one.  
-excel_sheets("Vegetation Monitoring Data.xlsx")
-
-# read in the data, all sheets
-spcov_df<-read_excel("Vegetation Monitoring Data.xlsx", 
-                     sheet = "DATA_SPCOVER", 
-                     .name_repair = make_clean_names)
-
-totcov_df<-read_excel("Vegetation Monitoring Data.xlsx", 
-                       sheet = "DATA_TOTALCOVER", 
-                       .name_repair = make_clean_names)
-
-trnk_df<-read_excel("Vegetation Monitoring Data.xlsx", 
-                        sheet = "DATA_TRUNK", 
-                        .name_repair = make_clean_names)
-
-veglst_df<-read_excel("Vegetation Monitoring Data.xlsx", 
-                    sheet = "VegetationList", 
-                    .name_repair = make_clean_names)
-
-#Removes the file from my working directory. 
-file.remove("Vegetation Monitoring Data.xlsx")
-
-head(spcov_df)
-head(totcov_df)
-head(trnk_df)
-head(veglst_df)
-
-spcover <- left_join(spcov_df, veglst_df, by = "species_code")
-
-spcover$percent_cover_num<-str_replace(spcover$percent_cover, "trace", ".5" ) #convert trace to 0.5% for plotting
-spcover$percent_cover_num <- as.numeric(spcover$percent_cover_num) #convert column to numeric
-
-#create an extra column with the transect/dist combo
-spcover$circle_name <- str_sub(spcover$plot_id, start = 6, end = 9)
-
-spcover$observation_date.only <-as_date(spcover$observation_date.x)
-
-## WRITE TO CSV FOR QUARTO ####
-write_csv(x = spcover,file = "data/spcover.csv")
-
+# exploratory plots ####
 # summary of events
 spcover  %>%  
   select(reach, plot_id)   %>% 
@@ -131,7 +80,7 @@ observations<-spcover %>%
   summarise(freq = n())
 
 obs_fullnames <-left_join(observations, veglst_df, by = "species_code")
-write_csv(obs_fullnames, "tables/common plant species-2024-07-03.csv")
+write_csv(obs_fullnames, "tables/common plant species-2024-07-29.csv")
 
 
 ggplot(data = spcover %>% 
@@ -211,9 +160,9 @@ spcover_trees<-spcover %>%
 
 #what about making a percent cover plot that mirrors the frequency of the occurance
 A<-ggplot(spcover %>% 
-         drop_na(scientific_name) %>% 
-         mutate(scientific_name = fct_relevel(scientific_name, spec_arranged)),
-       aes(x = scientific_name,  y = percent_cover_num)) + 
+            drop_na(scientific_name) %>% 
+            mutate(scientific_name = fct_relevel(scientific_name, spec_arranged)),
+          aes(x = scientific_name,  y = percent_cover_num)) + 
   geom_boxplot() +
   coord_flip() +
   labs(y = "percent cover (%)",
@@ -223,9 +172,9 @@ A
 ggsave("figs/avecov_sci.tiff", A, width = 10, height = 8, units = "in" )
 
 B <-p2 + scale_y_continuous(breaks=seq(0,100,by=10)) + labs(y = "count of observations",
-                                                              x = "species")
+                                                            x = "species")
 C <- A + labs(y = "percent cover (%)",
-                x = NULL)
+              x = NULL)
 B + C + plot_annotation(tag_levels = "A")
 ggsave("figs/freq_ave_sci.tiff", width = 10, height = 10, units = "in" )
 
@@ -344,3 +293,4 @@ spcover %>%
   filter(percent_cover == "1") %>% 
   select(scientific_name) %>% 
   distinct()
+
