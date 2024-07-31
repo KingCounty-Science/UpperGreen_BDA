@@ -195,27 +195,6 @@ ggplot(spcover, aes(x = reorder(scientific_name, percent_cover_num),  y = percen
   theme_bw()
 
 
-#start looking at the breakdown of species on the ground
-ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
-  geom_bar(stat = "identity", width = 1, position = position_fill()) +
-  coord_polar(theta = "y") + 
-  facet_grid(cols = vars(reach), vars(dist))
-
-ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
-  geom_bar(stat = "identity", width = 1, position = position_fill()) +
-  coord_polar(theta = "y") + 
-  facet_grid(cols = vars(reach), vars(transect))
-
-ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
-  geom_bar(stat = "identity", width = 1, position = position_fill()) +
-  coord_polar(theta = "y") + 
-  facet_grid(vars(reach), vars(circle_name))
-
-ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
-  geom_bar(stat = "identity", width = 1, position = position_fill()) +
-  coord_polar(theta = "y") + 
-  facet_wrap(~plot_id)
-
 #geom_col adds up th
 ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
   geom_col() +
@@ -293,4 +272,20 @@ spcover %>%
   filter(percent_cover == "1") %>% 
   select(scientific_name) %>% 
   distinct()
+
+#within plot species richness
+n_plotspecies<- spcover %>% 
+  select(plot_id, species_code) %>% 
+  group_by(plot_id) %>% 
+  summarise(n_plotspecies = n_distinct(species_code))
+
+range(n_plotspecies$n_plotspecies)
+
+name_reach<-spcover  %>%  
+  select(reach, plot_id)   %>% 
+  unique() %>% 
+  group_by( reach) %>% 
+  summarise(freq = n()) %>% 
+  filter(freq != 24) %>% 
+  pull(reach)
 

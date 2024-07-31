@@ -73,3 +73,4 @@ spcover$observation_date.only <-as_date(spcover$observation_date)
 
 ##write to csv for visualizations and quarto ####
 write_csv(x = spcover,file = "data/spcover.csv")
+
