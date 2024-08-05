@@ -279,7 +279,7 @@ n_plotspecies<- spcover %>%
   group_by(plot_id) %>% 
   summarise(n_plotspecies = n_distinct(species_code))
 
-range(n_plotspecies$n_plotspecies)
+mean(n_plotspecies$n_plotspecies)
 
 name_reach<-spcover  %>%  
   select(reach, plot_id)   %>% 

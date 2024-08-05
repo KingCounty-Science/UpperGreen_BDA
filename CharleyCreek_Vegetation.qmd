@@ -152,7 +152,7 @@ p1 + p2 + plot_annotation(tag_levels = "A")
 
 Overall teams observed `r n_species` different species in the area, `r n_treesp` tree species and the rest shrubs and herbaceous plants (@fig-freq-cov). X number of species occurred in 75% of the plots or more, including of \[most frequent\] which was in \[91\] of the \[94\] plots. X number of species were only observed once, often in trace amounts.
 
-Within plot species richness averaged `r ave(n_plotspecies$n_plotspecies)` with a median of `r median(n_plotspecies$n_plotspecies)` and ranged `r min(n_plotspecies$n_plotspecies)` to `r max(n_plotspecies$n_plotspecies)`.
+On average plots contained `r round(mean(n_plotspecies$n_plotspecies))` species with as few as `r min(n_plotspecies$n_plotspecies)` and as many as `r max(n_plotspecies$n_plotspecies)` planted species recorded.
 
 Coverage ranged from trace amounts (recorded as 0.5%) to `r cov_max`%. The most frequently occurring species horriblous,
 
