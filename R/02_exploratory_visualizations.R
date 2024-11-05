@@ -1,7 +1,8 @@
 #=== === === === === === === ===
 # Started September 30, 2022
 # Rebekah Stiling, rstiling@kingcounty.gov
-# This script explores a preliminary set of vegetation data
+# This script explores a preliminary set of vegetation data.
+# It also contains the plots that were included in the vegetation report submitted to WA Dept of Ecology
 #=== === === === === === === ===
 
 # load relevant packages ####
@@ -19,19 +20,6 @@ spcover  %>%
   unique() %>% 
   group_by( reach) %>% 
   summarise(freq = n()) 
-
-#plot the frequency of occurrence by code 
-spcover %>% 
-  group_by(species_code) %>%
-  summarise(freq = n()) %>% 
-  ggplot(aes(x = reorder(species_code, freq), 
-             y = freq)) + 
-  geom_col(alpha = 0.85, show.legend = FALSE) +     
-  labs(y = "count of observations",
-       x = NULL) + 
-  theme_minimal() +  
-  theme(axis.text.x = element_text(size = 8)) + 
-  coord_flip()
 
 # How many occured in 75% of the plots or more?
 93*.75
@@ -60,7 +48,7 @@ p1<-spcover %>%
   theme_minimal() 
 p1
 
-ggsave("figs/plant observation frequency_common.tiff",p1,  width = 7.5, height = 8, units = "in" )
+#ggsave("figs/plant observation frequency_common.tiff",p1,  width = 7.5, height = 8, units = "in" )
 
 p2<-spcover %>% 
   group_by(scientific_name) %>%
@@ -75,7 +63,7 @@ p2<-spcover %>%
   theme_minimal() 
 p2
 
-ggsave("figs/plant observation frequency_sci.tiff",p2,  width = 7.5, height = 8, units = "in" )
+#ggsave("figs/plant observation frequency_sci.tiff",p2,  width = 7.5, height = 8, units = "in" )
 
 #capture the reordered list:
 spec_arranged<-spcover %>% 
@@ -106,7 +94,7 @@ ggplot(data = spcover %>%
   coord_flip() + 
   theme_minimal() +
   facet_grid(cols = vars(reach))
-ggsave("figs/plant observation frequency_reach_common.tiff",  width = 10, height = 8, units = "in" )
+#ggsave("figs/plant observation frequency_reach_common.tiff",  width = 10, height = 8, units = "in" )
 
 
 ggplot(data = spcover %>% 
@@ -121,7 +109,7 @@ ggplot(data = spcover %>%
   coord_flip() + 
   theme_minimal() +
   facet_grid(cols = vars(reach))
-ggsave("figs/plant observation frequency_reach_sci.tiff",  width = 10, height = 8, units = "in" )
+#ggsave("figs/plant observation frequency_reach_sci.tiff",  width = 10, height = 8, units = "in" )
 
 #what about distance from water's edge
 ggplot(data = spcover %>% 
@@ -180,7 +168,7 @@ A<-ggplot(spcover %>%
        x = "species") +
   theme_bw()
 A
-ggsave("figs/avecov_sci.tiff", A, width = 10, height = 8, units = "in" )
+#ggsave("figs/avecov_sci.tiff", A, width = 10, height = 8, units = "in" )
 
 B <-p2 + scale_y_continuous(breaks=seq(0,100,by=10)) + labs(y = "count of observations",
                                                             x = "species")
