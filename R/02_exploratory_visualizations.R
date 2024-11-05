@@ -18,9 +18,7 @@ spcover  %>%
   select(reach, plot_id)   %>% 
   unique() %>% 
   group_by( reach) %>% 
-  summarise(freq = n()) %>% 
-  filter(freq != 24) %>% 
-  pull(reach)
+  summarise(freq = n()) 
 
 #plot the frequency of occurrence by code 
 spcover %>% 
@@ -34,6 +32,19 @@ spcover %>%
   theme_minimal() +  
   theme(axis.text.x = element_text(size = 8)) + 
   coord_flip()
+
+# How many occured in 75% of the plots or more?
+93*.75
+
+spcover %>% 
+  group_by(species_code) %>%
+  summarise(freq = n()) %>% 
+  filter(freq >= (93*.75)) 
+
+spcover %>% 
+  group_by(species_code) %>%
+  summarise(freq = n()) %>% 
+  filter(freq <= (1)) 
 
 #plot the frequency of occurrence with common names (difference is geom_bar vs geom_col)
 p1<-spcover %>% 
