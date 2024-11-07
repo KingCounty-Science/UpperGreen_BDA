@@ -13,7 +13,7 @@ library(patchwork) # for multipanel plotting
 ## read in the tidy data ####
 spcover<-read_csv(file = "data/spcover.csv")
 
-# exploratory plots ####
+# Sampling Events ####
 # summary of events
 spcover  %>%  
   select(reach, plot_id)   %>% 
@@ -21,51 +21,47 @@ spcover  %>%
   group_by( reach) %>% 
   summarise(freq = n()) 
 
-# How many occured in 75% of the plots or more?
-93*.75
+# Richness ####
+# How many species were observed?
+unique_species<-spcover %>% 
+  select(species_code) %>%
+  unique() %>% 
+  count() %>% 
+  pull()
+unique_species
 
+# How many species occurred in 75% of the plots or more?
 spcover %>% 
   group_by(species_code) %>%
   summarise(freq = n()) %>% 
-  filter(freq >= (93*.75)) 
+  filter(freq >= (unique_species*.75)) 
 
+# Howe many species occurred only once?
 spcover %>% 
   group_by(species_code) %>%
   summarise(freq = n()) %>% 
   filter(freq <= (1)) 
 
-#plot the frequency of occurrence with common names (difference is geom_bar vs geom_col)
-p1<-spcover %>% 
-  group_by(common_name) %>%
-  summarise(freq = n()) %>% 
-  drop_na() %>% 
-  ggplot(aes(x = reorder(common_name, freq), y = freq)) +
-  geom_bar(stat = "identity") + 
-  labs(y = "count of observations",
-       x = NULL) + 
-  scale_y_continuous(breaks=seq(0,100,by=5))+
-  coord_flip() + 
-  theme_minimal() 
-p1
+# How many species were in each plot on average, min, and max?
+n_plotspecies<- spcover %>% 
+  select(plot_id, species_code) %>% 
+  group_by(plot_id) %>% 
+  summarise(n_plotspecies = n_distinct(species_code))
 
-#ggsave("figs/plant observation frequency_common.tiff",p1,  width = 7.5, height = 8, units = "in" )
+n_plotspecies
 
-p2<-spcover %>% 
-  group_by(scientific_name) %>%
-  summarise(freq = n()) %>% 
-  drop_na() %>% 
-  ggplot(aes(x = reorder(scientific_name, freq), y = freq)) +
-  geom_bar(stat = "identity") + 
-  labs(y = "count of observations",
-       x = NULL) + 
-  scale_y_continuous(breaks=seq(0,100,by=5))+
-  coord_flip() + 
-  theme_minimal() 
-p2
+mean(n_plotspecies$n_plotspecies)
+range(n_plotspecies$n_plotspecies)
 
-#ggsave("figs/plant observation frequency_sci.tiff",p2,  width = 7.5, height = 8, units = "in" )
+# How often was salmonberry observed and where?
+spcover %>% 
+  filter(scientific_name == "Rubus spectabilis") %>%
+  group_by(reach) %>% 
+  summarise(freq = n()) 
 
-#capture the reordered list:
+
+# Plots for write up. ####
+#capture a list ordered by frequency for plotting.
 spec_arranged<-spcover %>% 
   group_by(scientific_name) %>%
   summarise(freq = n()) %>% 
@@ -73,14 +69,50 @@ spec_arranged<-spcover %>%
   arrange(freq) %>% 
   pull(scientific_name)
 
-#Obtain list of plants for next data sheet.
-observations<-spcover %>% 
-  group_by(species_code) %>%
-  summarise(freq = n())
+#isolate the tree/shrub etc lables
+vegtypelist <- spcover %>% 
+  select(scientific_name, vegetation_type) %>% 
+  unique()
 
-obs_fullnames <-left_join(observations, veglst_df, by = "species_code")
-write_csv(obs_fullnames, "tables/common plant species-2024-07-29.csv")
+# joined frequency and percent cover plots.
+A<-spcover %>% 
+  group_by(scientific_name) %>%
+  summarise(freq = n()) %>% 
+  drop_na() %>%
+  left_join(vegtypelist) %>% 
+  ggplot(aes(x = reorder(scientific_name, freq), y = freq, fill = vegetation_type)) +
+  geom_bar(stat = "identity") + 
+  scale_fill_manual(values = "#0A6522") +
+  labs(y = "count of observations",
+       x = NULL) + 
+  scale_y_continuous(breaks=seq(0,100,by=5))+
+  coord_flip() + 
+  theme_minimal() + 
+  scale_y_continuous(breaks=seq(0,100,by=10)) + 
+  theme(text=element_text(size = 9),
+        legend.position="none",#drop legend
+        axis.text.y = element_text(face = "italic")) + 
+  labs(y = "count of observations",
+       x = "species")
+A
+B<-ggplot(spcover %>% 
+            drop_na(scientific_name) %>% 
+            mutate(scientific_name = fct_relevel(scientific_name, spec_arranged)),
+          aes(x = scientific_name,  y = percent_cover_num)) + 
+  geom_boxplot() +
+  coord_flip() +
+  labs(y = "percent cover (%)",
+       x = "species") +
+  theme_minimal() + 
+  theme(text=element_text(size = 9),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank()) +
+  labs(y = "percent cover (%)",
+                    x = NULL)
+B
 
+A + B + plot_annotation(tag_levels = "A") 
+ggsave("figs/freq_ave_sci.tiff", width = 6.5, height = 8, units = "in" )
 
 ggplot(data = spcover %>% 
          group_by(reach, common_name) %>% 
@@ -96,7 +128,7 @@ ggplot(data = spcover %>%
   facet_grid(cols = vars(reach))
 #ggsave("figs/plant observation frequency_reach_common.tiff",  width = 10, height = 8, units = "in" )
 
-
+# additional plots for exploration. ####
 ggplot(data = spcover %>% 
          group_by(reach, scientific_name) %>% 
          summarise(freq = n()) %>% 
@@ -124,20 +156,20 @@ ggplot(data = spcover %>%
   coord_flip() + 
   theme_minimal() +
   facet_grid(cols = vars(dist))
-ggsave("figs/plant observation frequency_dist_sci.tiff",  width = 10, height = 8, units = "in" )
+#ggsave("figs/plant observation frequency_dist_sci.tiff",  width = 10, height = 8, units = "in" )
 
 ##The histograms track the frequently occurring species.
-## What about the most abundant species? How often do species cover a lot of the plot?
 
+## What about the most abundant species? How often do species cover a lot of the plot?
 spcover %>% 
   filter(vegetation_type != "tree" | is.na(vegetation_type)) %>% 
   filter(percent_cover_num > 30) %>% 
-  group_by(common_name) %>% 
+  group_by(scientific_name) %>% 
   summarise(freq = n()) %>% 
   drop_na() %>% 
-  ggplot(aes(x = reorder(common_name, freq), y = freq)) +
+  ggplot(aes(x = reorder(scientific_name, freq), y = freq)) +
   geom_bar(stat = "identity") + 
-  labs(y = "count of observations",
+  labs(y = "count of observations where % cover exceeding 50%",
        x = NULL) + 
   scale_y_continuous(breaks=seq(0,100,by=5))+
   coord_flip() + 
@@ -145,7 +177,7 @@ spcover %>%
 
 # what is the average amount of cover for a common species ####
 
-#first, what are the most commonly occuring species that are trees and that are not trees
+#first, what are the most commonly occurring species that are trees and that are not trees
 #trees 
 treelist<-spcover %>% 
   filter(vegetation_type == "tree") %>% 
@@ -157,25 +189,6 @@ treelist<-spcover %>%
 spcover_trees<-spcover %>% 
   filter(scientific_name %in% treelist)
 
-#what about making a percent cover plot that mirrors the frequency of the occurance
-A<-ggplot(spcover %>% 
-            drop_na(scientific_name) %>% 
-            mutate(scientific_name = fct_relevel(scientific_name, spec_arranged)),
-          aes(x = scientific_name,  y = percent_cover_num)) + 
-  geom_boxplot() +
-  coord_flip() +
-  labs(y = "percent cover (%)",
-       x = "species") +
-  theme_bw()
-A
-#ggsave("figs/avecov_sci.tiff", A, width = 10, height = 8, units = "in" )
-
-B <-p2 + scale_y_continuous(breaks=seq(0,100,by=10)) + labs(y = "count of observations",
-                                                            x = "species")
-C <- A + labs(y = "percent cover (%)",
-              x = NULL)
-B + C + plot_annotation(tag_levels = "A")
-ggsave("figs/freq_ave_sci.tiff", width = 10, height = 10, units = "in" )
 
 ggplot(spcover_trees, aes(x = reorder(scientific_name, percent_cover_num),  y = percent_cover_num)) + 
   geom_boxplot() +
@@ -193,7 +206,6 @@ ggplot(spcover, aes(x = reorder(scientific_name, percent_cover_num),  y = percen
        x = "tree species") +
   theme_bw()
 
-
 #geom_col adds up th
 ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) + 
   geom_col() +
@@ -204,9 +216,6 @@ ggplot(spcover, aes(x = plot_id, y = percent_cover_num, fill = common_name)) +
   geom_col() +
   facet_grid(cols = vars(reach), vars(dist()))
 
-#what if we converted the things that we see in trace amounts to "other" and then highlighted the most common things
-
-
 # I think this could be a good place for patchwork. I make 4 sets of 24 charts then combine.
 
 ggplot(data = spcover %>% filter(reach == "WillowNorth"), 
@@ -214,6 +223,11 @@ ggplot(data = spcover %>% filter(reach == "WillowNorth"),
   geom_col() +
   facet_wrap(~circle_name, ncol = 6)
 
+# Tree Sizes ####
+## read in the tidy tree data ####
+trnk <-read_csv(file = "data/trnk.csv")
+
+trnk %>% select(scientific_name, common_name) %>% unique() 
 
 ### Total Cover ####
 plot_info <-spcover %>% select(plot_id, region, reach, question, treatment, transect, dist, circle_name) %>% unique()
@@ -272,19 +286,4 @@ spcover %>%
   select(scientific_name) %>% 
   distinct()
 
-#within plot species richness
-n_plotspecies<- spcover %>% 
-  select(plot_id, species_code) %>% 
-  group_by(plot_id) %>% 
-  summarise(n_plotspecies = n_distinct(species_code))
-
-mean(n_plotspecies$n_plotspecies)
-
-name_reach<-spcover  %>%  
-  select(reach, plot_id)   %>% 
-  unique() %>% 
-  group_by( reach) %>% 
-  summarise(freq = n()) %>% 
-  filter(freq != 24) %>% 
-  pull(reach)
 
