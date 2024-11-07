@@ -1,0 +1,94 @@
+species_code,freq,scientific_name,common_name,vegetation_type,beaver_preference
+ABAM,25,Abies amabilis,Pacific silver fir,tree,NA
+ACCI,26,Acer circinatum,vine maple,NA,NA
+ACEL,1,Actaea elata,bugbane,NA,NA
+ACRU,3,Actaea rubra,red baneberry,NA,NA
+ACTR,33,Achlys triphylla,vanilla leaf,NA,NA
+ADAL,4,Adiantum aleuticum,maiden hair fern,NA,NA
+ADBI,16,Adenocaulon bicolor,trail plant or pathfinder,NA,NA
+ALRU,12,Alnus rubra,red alder,tree,NA
+ANGE,1,Angelica genuflexa,kneeling angelica,NA,NA
+ARDI,1,Aruncus dioicus,goatsbeard,NA,NA
+ASCA,7,Asaram caudatum,wild ginger,NA,NA
+ATFE,76,Athyrium filix-femina,lady fern,NA,NA
+BRVU,3,Bromus vulgaris,Columbia Brome,NA,NA
+BRXXSP,4,Bromus sp.,Bromus species - grasses,NA,NA
+CAHA,1,Carex Hendersonii,Henderson Sedge,NA,NA
+CASC,1,Campanula scouleri,Scoulers hareball,NA,NA
+CAXXSP,8,Carex sp.,sedge species,NA,NA
+CHUM,3,Chimaphyla umbellata,pipsissewa,NA,NA
+CIAL,30,Circaea alpina,alpine enchanter's nightshade,NA,NA
+CIBR,1,Cirsium brevistylum ,short-styled thistle,NA,NA
+CIDO,1,Cicuta douglasii,water hemlock,NA,NA
+CLSI,14,Claytonia sibirica,miners lettuce or candy flower,NA,NA
+CLUN,23,Clintonia uniflora,queens cups,NA,NA
+COSC,30,Corydalis scouleri,corydalis,NA,NA
+COUN,24,Cornus unalaschkensis,bunchberry,NA,NA
+DIFO,2,Dicentra formosa,bleeding heart,NA,NA
+DRAR,9,Dryopteris arguta,wood fern,NA,NA
+DREX,34,Dryopteris expansa,spreading wood fern,NA,NA
+EPCI,1,Epilobium ciliatum,Epilobium?,NA,NA
+EQXXSP,11,Equisetum sp.,horsetail species,NA,NA
+FRPU,1,Frangula purshiana,cascara,NA,NA
+GASH,10,Gaultheria shallon,salal,NA,NA
+GATR,43,Galium triflorum,galium,NA,NA
+GERO,1,Geranium robertianum,herb robert,NA,NA
+GLXXSP,1,Glyceria sp.,glyciria species,NA,NA
+GOOB,34,Goodyera oblongifolia,rattlesnake plantain,NA,NA
+GYDI,51,Gymnocarpium disjunctum,oak fern,NA,NA
+HILA,4,Hieracium lachenalii,common hawkweed,NA,NA
+HUMI,1,Huechera micrantha,crevice alumroot,NA,NA
+HUOC,1,Huperzia occidentalis,Pacific clubmoss,NA,NA
+HYTE,39,Hydrophyllum tenuipes,Pacific waterleaf,NA,NA
+LIBO,2,Linnea borealis,twinflower,NA,NA
+LUPA,5,Luzula parviflora,small-flowered woodrush,NA,NA
+LYAM,37,Lysichiton americanus,skunk cabbage,NA,NA
+MADI,61,Maianthemum dilatatum,false lily of the valley,NA,NA
+MANE,18,Mahonia nervosa ,low oregon grape,NA,NA
+MARA,2,Maianthemum racemosum,false Soloman's seal,NA,NA
+MAST,38,Maianthemum stellatum,star-flowered Solomon's seal,NA,NA
+MICA,18,Mitellastra caulescens,mitrewort,NA,NA
+MOUN,6,Monotropa uniflora,ghost pipe,NA,NA
+MYMU,8,Mycelis muralis,wall lettuce,NA,NA
+OESA,3,Oenanthe sarmentosa,water parsley,NA,NA
+OPHO,90,Oplopanax horridus,devil's club,NA,NA
+OSBE,6,Osmorhiza berteroi,sweet-cicely,NA,NA
+OXTR,5,Oxalis trilliifolia,trillium-leaved oxalis,NA,NA
+PEFR,3,Petasites frigidus var. palmatus,western coltsfoot,NA,NA
+PISI,2,Picea sitchensis,sitka spruce,tree,NA
+POACAE,8,Poaceae,grass family,NA,NA
+POGL,10,Polypodium glycyrrhiza,licorice fern,NA,NA
+POMU,87,Polystichum munitum,sword fern,NA,NA
+PRHO,13,Prosartes hookeri,Hooker's fairy bell,NA,NA
+PRSM,1,Prosartes smithii,fairy lantern,NA,NA
+PRXXSP,1,Prunus sp.,cherry species,tree,NA
+PSME,48,Pseudotsuga menziesii,Douglas fir,tree,NA
+PTAQ,5,Pteridium aquilinum,bracken fern,NA,NA
+RHME,59,Rhododendron menziesii,false azalea or azalea,NA,NA
+RIBR,41,Ribes bracteosum,stink currant,NA,NA
+ROGY,7,Rosa gymnocarpa,Rosa gymnocarpa?,NA,NA
+ROXXSP,2,Rosa sp.,Rosa species,NA,NA
+RULE,1,Rubus leucodermis ,blackcap raspberry,NA,NA
+RUNI,1,Rubus nivalis,snow raspberry,NA,NA
+RUPA,8,Rubus parviflorus,thimbleberry,NA,NA
+RUPE,27,Rubus pedatus,creeping raspberry,shrub,NA
+RUSP,60,Rubus spectabilis,salmonberry,NA,preferred
+RUUR,13,Rubus ursinus,trailing blackberry,NA,NA
+SARA,38,Sambucus racemosa,red elderberry,NA,highly preferred
+SCMI,2,Scirpus microcarpus,small fruited bulrush,NA,NA
+STAM,1,Streptopus amplexifolius,twistedstalk,NA,NA
+STCO,13,Stachys cooleyae,Cooley's Hedge-nettle,NA,NA
+STLA,1,Streptopus lanceolatus,rosy twisted stalk,NA,NA
+STSP,69,Struthiopteris spicant,deer fern,NA,NA
+STXXSP,16,Streptopus sp. or Prosartes sp.,twistedstalk or fairy bells,NA,NA
+TABR,2,Taxus brevifolia,Pacific yew,tree,NA
+TEGR,7,Tellima grandiflora,fringecup,NA,NA
+THPL,35,Thuja plicata,western redcedar,tree,NA
+TITR,89,Tiarella trifoliata,foam flower,NA,NA
+TOME,52,Tolmiea menziesii,piggyback plant,NA,NA
+TROV,22,Trillium ovatum,trillium,NA,NA
+TSHE,78,Tsuga heterophylla,western hemlock,tree,NA
+VAOV,16,Vaccinium ovalifolium,Oval-leaved huckleberry,NA,NA
+VAPA,77,Vaccinium parvifolium,red huckleberry,NA,NA
+VIXXSP,62,Viola sp.,violet species,NA,NA
+fernXX,1,unknown fern species,unknown fern species,NA,NA

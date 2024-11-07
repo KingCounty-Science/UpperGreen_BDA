@@ -15,7 +15,7 @@ BRVU,3,Bromus vulgaris,Columbia Brome,NA,NA,NA,NA
 BRXXSP,4,Bromus sp.,Bromus species - grasses,NA,NA,NA,NA
 CAHA,1,Carex Hendersonii,Henderson Sedge,NA,NA,NA,NA
 CASC,1,Campanula scouleri,Scoulers hareball,NA,NA,NA,NA
-CAXXSP,8,Carex sp.,carex sp - sedges,NA,NA,NA,NA
+CAXXSP,8,Carex sp.,sedge species,NA,NA,NA,NA
 CHUM,3,Chimaphyla umbellata,pipsissewa,NA,NA,NA,NA
 CIAL,30,Circaea alpina,alpine enchanter's nightshade,NA,NA,NA,NA
 CIBR,1,Cirsium brevistylum ,short-styled thistle,NA,NA,NA,NA
@@ -32,7 +32,7 @@ EQXXSP,11,Equisetum sp.,horsetail species,NA,NA,NA,NA
 FRPU,1,Frangula purshiana,cascara,NA,NA,NA,NA
 GASH,10,Gaultheria shallon,salal,NA,NA,NA,NA
 GATR,43,Galium triflorum,galium,NA,NA,NA,NA
-GERO,1,Geranium robertianum,herb robert aka stinky bob,NA,NA,NA,NA
+GERO,1,Geranium robertianum,herb robert,NA,NA,NA,NA
 GLXXSP,1,Glyceria sp.,glyciria species,NA,NA,NA,NA
 GOOB,34,Goodyera oblongifolia,rattlesnake plantain,NA,NA,NA,NA
 GYDI,51,Gymnocarpium disjunctum,oak fern,NA,NA,NA,NA
@@ -91,4 +91,4 @@ TSHE,78,Tsuga heterophylla,western hemlock,tree,NA,NA,NA
 VAOV,16,Vaccinium ovalifolium,Oval-leaved huckleberry,NA,NA,NA,NA
 VAPA,77,Vaccinium parvifolium,red huckleberry,NA,NA,NA,NA
 VIXXSP,62,Viola sp.,violet species,NA,NA,NA,NA
-fernXX,1,NA,unknown fern species,NA,NA,NA,NA
+fernXX,1,unknown fern species,unknown fern species,NA,NA,NA,NA
