@@ -55,7 +55,6 @@ head(trnk_df)
 head(veglst_df)
 
 # create usable tidy dataset ####
-
 # join data tables to get species common and scientific names 
 spcover <- left_join(spcov_df, veglst_df, by = "species_code")
 
@@ -73,4 +72,19 @@ spcover$observation_date.only <-as_date(spcover$observation_date)
 
 ##write to csv for visualizations and quarto ####
 write_csv(x = spcover,file = "data/spcover.csv")
+
+# join data tables to get species common and scientific names for trees
+trnk <- left_join(trnk_df, veglst_df, by = "species_code")
+
+#create an extra column with the transect/dist combo
+trnk$circle_name <- str_sub(trnk$plot_id, start = 6, end = 9)
+
+#convert sapling to 0.25 for plotting
+trnk$dbh_inches_num<-str_replace(trnk$dbh_inches, "sapling", ".25" ) 
+
+#convert column to numeric
+trnk$dbh_inches_num <- as.numeric(trnk$dbh_inches_num) 
+
+##write to csv for visualizations and quarto ####
+write_csv(x = trnk,file = "data/trnk.csv")
 
