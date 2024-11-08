@@ -30,6 +30,13 @@ unique_species<-spcover %>%
   pull()
 unique_species
 
+#which were down to sp.?
+sp_species<-spcover %>% 
+  select(scientific_name) %>%
+  unique() %>% 
+  pull() %>% 
+  str_subset(pattern = "sp.")
+
 # How many species occurred in 75% of the plots or more?
 spcover %>% 
   group_by(species_code) %>%
@@ -175,9 +182,9 @@ spcover %>%
   coord_flip() + 
   theme_minimal() 
 
-# what is the average amount of cover for a common species ####
-
 #first, what are the most commonly occurring species that are trees and that are not trees
+
+#how many trees were in each plot? 
 #trees 
 treelist<-spcover %>% 
   filter(vegetation_type == "tree") %>% 
@@ -189,14 +196,45 @@ treelist<-spcover %>%
 spcover_trees<-spcover %>% 
   filter(scientific_name %in% treelist)
 
+spcover_trees %>% 
+  group_by(plot_id) %>% 
+  summarise(freq = n()) %>% 
+  filter(freq <= 3) 
+
+#what species are in the groups of four?
+foursp_list<-spcover_trees %>% 
+  group_by(plot_id) %>% 
+  summarise(freq = n()) %>% 
+  filter(freq == 4) %>% 
+  pull(plot_id)
+
+spcover_trees %>% 
+  filter(plot_id %in% foursp_list) %>% 
+  group_by(plot_id) %>% 
+  select(plot_id, scientific_name) %>% 
+  filter(scientific_name == "Thuja plicata")
+
+spcover_trees %>% 
+  filter(plot_id == "CCEBCF075") %>% 
+  select(scientific_name)
+
+#Coverage
+
 
 ggplot(spcover_trees, aes(x = reorder(scientific_name, percent_cover_num),  y = percent_cover_num)) + 
   geom_boxplot() +
+  geom_jitter(width =.1, alpha = .3) +
   facet_grid(~dist) + 
   coord_flip() +
-  labs(y = "percent cover (%)",
-       x = "tree species") +
-  theme_bw()
+  labs(y = "Percent cover (%)",
+       x = "Tree species") +
+  theme_bw() +
+  theme(text=element_text(size = 9),
+        axis.text.y = element_text(face = "italic"))
+
+ggsave("figs/treecover_by dist.tiff",  width = 6.5, height = 4, units = "in" )
+
+
 
 ggplot(spcover, aes(x = reorder(scientific_name, percent_cover_num),  y = percent_cover_num)) + 
   geom_boxplot() +
@@ -229,6 +267,44 @@ trnk <-read_csv(file = "data/trnk.csv")
 
 trnk %>% select(scientific_name, common_name) %>% unique() 
 
+range(trnk$dbh_inches_num) 
+
+trunk_sizes<-trnk %>% 
+  filter(dbh_inches != "sapling") %>% 
+  group_by(scientific_name) %>% 
+  summarise(frq = n(),
+            min_trunk = min(dbh_inches_num),
+            max_trunk = max(dbh_inches_num),
+            mean_trunk = mean(dbh_inches_num))
+trunk_sizes
+write_csv(trunk_sizes, "data/trunk_summary.csv")
+
+ggplot(trnk %>% 
+         filter(dbh_inches != "sapling"), 
+       aes(x = scientific_name, y = dbh_inches_num)) +
+  geom_boxplot() +
+  geom_jitter(width =.1, alpha = .3, color = "#0A6522") +
+  labs(y = "DBH (inches)",
+       x = "Tree species") +
+  theme_minimal() +
+  theme(text=element_text(size = 9),
+        axis.text.x = element_text(face = "italic",
+                                   angle = 15))
+
+ggsave("figs/treeDBH_by species.tiff",  width = 6.5, height = 4, units = "in" )
+
+saplings<-trnk %>% 
+  filter(dbh_inches == "sapling") %>% 
+  group_by(scientific_name) %>% 
+  summarise(tot_saps = sum(sapling_count))
+saplings
+
+trnk %>% 
+  filter(dbh_inches == "sapling") %>% 
+  group_by(plot_id) %>% 
+  summarise(tot_saps = sum(sapling_count)) %>% 
+  filter(tot_saps > 5)
+
 ### Total Cover ####
 plot_info <-spcover %>% select(plot_id, region, reach, question, treatment, transect, dist, circle_name) %>% unique()
 
@@ -252,16 +328,27 @@ ggplot(totcov,
   scale_x_continuous(breaks=(c(20, 75, 130))) +
   theme_bw()
 
-ggsave("figs/canopy_cover_dist.tiff", width = 6, height = 6, units = "in" )
+totcov %>% 
+  group_by(dist ) %>% 
+  summarise(avecov = mean(total_cover),
+            medcov = median(total_cover))
+
+totcov %>% select(total_cover) %>% pull() %>% mean()
+totcov %>% select(total_cover) %>% pull() %>% median()
+totcov %>% select(total_cover) %>% pull() %>% min()
+totcov %>% select(total_cover) %>% pull() %>% max()
 
 ggplot(totcov, 
        aes(x = dist,  y = total_cover )) + 
   geom_boxplot(aes(group = cut_width(dist, 50))) + # I need this line otherwise it blends the numeric data
-  labs(y = "overal canopy cover (%)",
-       x = "distance from water's edge (ft) ") +
+  geom_jitter(width =3, alpha = .3, color = "#0A6522") +
+  labs(y = "Overall canopy cover (%)",
+       x = "Distance from water's edge (ft) ") +
   scale_x_continuous(breaks=(c(20, 75, 130))) +
   facet_grid(~reach)+
   theme_bw()
+
+ggsave("figs/canopy_cover_dist_reach.tiff", width = 6.5, height = 4, units = "in" )
 
 ggplot(totcov, 
        aes(x = dist,  y = total_cover )) + 
@@ -285,5 +372,10 @@ spcover %>%
   filter(percent_cover == "1") %>% 
   select(scientific_name) %>% 
   distinct()
+
+## Ideas for later
+# Are there metrics that we can calculate for each plot? If so, then we can plot on an x-y graph. Such as: total species and total canopy cover. 
+
+
 
 
