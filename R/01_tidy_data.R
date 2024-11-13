@@ -85,6 +85,11 @@ trnk$dbh_inches_num<-str_replace(trnk$dbh_inches, "sapling", ".25" )
 #convert column to numeric
 trnk$dbh_inches_num <- as.numeric(trnk$dbh_inches_num) 
 
+#get dist from spcover
+plotinfo <-spcover %>% select(plot_id, dist, reach, question, treatment, transect) %>% unique()
+
+trnk <- left_join(trnk, plotinfo, by = "plot_id")
+
 ##write to csv for visualizations and quarto ####
 write_csv(x = trnk,file = "data/trnk.csv")
 
