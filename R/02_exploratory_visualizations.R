@@ -8,6 +8,7 @@
 # load relevant packages ####
 library(tidyverse) #for wrangling and plotting
 library(patchwork) # for multipanel plotting
+library(viridis) # for colors
 
 
 ## read in the tidy data ####
@@ -267,31 +268,72 @@ trnk <-read_csv(file = "data/trnk.csv")
 
 trnk %>% select(scientific_name, common_name) %>% unique() 
 
-range(trnk$dbh_inches_num) 
+#what were the trunk sizes for plots in the 20-ft area?
+#excluding saplings
+near20<-trnk %>% select(scientific_name, dbh_inches, dbh_inches_num, dist) %>% filter(dist == "20" & dbh_inches != "sapling")
 
+# number of saplings
+trnk %>% select(scientific_name, dbh_inches, dbh_inches_num, dist) %>% filter(dist == "20" & dbh_inches == "sapling")
+
+near20 %>% 
+  summarise(frq = n(), 
+            mean = mean(dbh_inches_num),
+            median_trunk = median(dbh_inches_num))
+
+ggplot(near20, aes(x = dbh_inches_num, fill = scientific_name)) +
+  geom_histogram() +
+  theme_minimal() +
+  scale_fill_viridis(option="viridis", discrete = TRUE, direction = -1) +
+  labs(x = "d.b.h. (inches)",
+       fill = "Scientific name") +
+  scale_y_continuous(breaks = seq(0, 9, 3), limits = c(0, 9))
+
+ggsave("figs/treeDBH_20m_hist.tiff",  width = 6.5, height = 2.5, units = "in" )
+range(trnk$dbh_inches_num) 
 trunk_sizes<-trnk %>% 
   filter(dbh_inches != "sapling") %>% 
   group_by(scientific_name) %>% 
   summarise(frq = n(),
             min_trunk = min(dbh_inches_num),
             max_trunk = max(dbh_inches_num),
-            mean_trunk = mean(dbh_inches_num))
+            mean_trunk = mean(dbh_inches_num),
+            median_trunk = median(dbh_inches_num))
 trunk_sizes
 write_csv(trunk_sizes, "data/trunk_summary.csv")
+
+trnk$dist_fact <- as.factor(trnk$dist)
 
 ggplot(trnk %>% 
          filter(dbh_inches != "sapling"), 
        aes(x = scientific_name, y = dbh_inches_num)) +
   geom_boxplot() +
-  geom_jitter(width =.1, alpha = .3, color = "#0A6522") +
+  geom_jitter(width =.2, 
+              alpha = .5, 
+              size = 2,
+              aes(color = dist_fact)) +
   labs(y = "DBH (inches)",
-       x = "Tree species") +
+       x = "Tree species",
+       color = "Plot center (ft)") +
   theme_minimal() +
   theme(text=element_text(size = 9),
         axis.text.x = element_text(face = "italic",
-                                   angle = 15))
-
+                                   angle = 15)) +
+  scale_color_viridis(option="viridis", discrete = TRUE, direction = -1)
 ggsave("figs/treeDBH_by species.tiff",  width = 6.5, height = 4, units = "in" )
+
+#tree dbh by reach and distance from water's edge
+ggplot(trnk %>% 
+         filter(dbh_inches != "sapling"), 
+       aes(x = dist,  y = dbh_inches_num)) + 
+  geom_boxplot(aes(group = cut_width(dist, 50))) + # I need this line otherwise it blends the numeric data
+  geom_jitter(width =3, alpha = .3, color = "#0A6522") +
+  labs(y = "d.b.h. (inches)",
+       x = "Distance from water's edge (ft) ") +
+  scale_x_continuous(breaks=(c(20, 75, 130))) +
+  facet_grid(~reach)+
+  theme_bw()
+ggsave("figs/dbh_dist_reach.tiff", width = 6.5, height = 4, units = "in" )
+
 
 saplings<-trnk %>% 
   filter(dbh_inches == "sapling") %>% 
