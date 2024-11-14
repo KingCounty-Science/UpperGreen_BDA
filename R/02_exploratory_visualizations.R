@@ -67,6 +67,10 @@ spcover %>%
   group_by(reach) %>% 
   summarise(freq = n()) 
 
+spcover %>% 
+  filter(scientific_name == "Thuja plicata") %>%
+  group_by(reach) %>% 
+  summarise(freq = n()) 
 
 # Plots for write up. ####
 #capture a list ordered by frequency for plotting.
