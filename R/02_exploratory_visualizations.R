@@ -72,6 +72,36 @@ spcover %>%
   group_by(reach) %>% 
   summarise(freq = n()) 
 
+spcover %>% 
+  filter(scientific_name == "Alnus rubra") %>%
+  group_by(reach) %>% 
+  summarise(freq = n()) 
+
+bevpref_tbl<-spcover %>% 
+  filter(scientific_name == "Alnus rubra"|
+           scientific_name == "Thuja plicata" |
+           scientific_name == "Rubus spectabilis") %>%
+  group_by(reach, scientific_name) %>% 
+  summarise(freq = n()) %>%
+  pivot_wider(names_from = scientific_name, values_from = freq)
+
+overlap_tle <-spcover %>% 
+  filter(scientific_name == "Alnus rubra"|
+           scientific_name == "Thuja plicata" |
+           scientific_name == "Rubus spectabilis") %>%
+  group_by(reach, plot_id) %>% 
+  summarise(freq = n()) %>% 
+  group_by(reach, freq) %>% 
+  summarise(freq2 = n()) %>% 
+  pivot_wider(names_from = freq, values_from = freq2) %>% 
+  rename("one" = "1","two" = "2","three" = "3") %>% 
+  mutate(tot = one + two + !is.na(three))
+  
+
+bevpref <- (left_join(bevpref_tbl, overlap_tle, by = "reach" ))
+
+write_csv(bevpref, "tables/prefered_sitefrequency.csv")
+
 # Plots for write up. ####
 #capture a list ordered by frequency for plotting.
 spec_arranged<-spcover %>% 
