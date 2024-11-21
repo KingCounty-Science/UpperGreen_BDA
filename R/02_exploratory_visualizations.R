@@ -31,6 +31,36 @@ unique_species<-spcover %>%
   pull()
 unique_species
 
+# If we only look at the plots in the 20 and 75 foot plots, what is the richness?
+
+close_unique_species <- spcover %>% 
+  filter(dist != 130) %>% 
+  select(scientific_name) %>%
+  unique() %>% 
+  count() %>% 
+  pull()
+close_unique_species
+
+closest_unique_species <- spcover %>% 
+  filter(dist == 20) %>% 
+  select(scientific_name) %>%
+  unique() %>% 
+  count() %>% 
+  pull()
+closest_unique_species
+
+#What are the species that were in the 130 plots that were not in the 75+20 foot plots?
+specieslist_20_75 <-spcover %>% 
+  filter(dist != 130) %>% 
+  select(scientific_name) %>%
+  unique()
+
+specieslist_all <-spcover %>% 
+  select(scientific_name) %>%
+  unique()
+
+anti_join(specieslist_all, specieslist_20_75) %>%  pull()
+
 #which were down to sp.?
 sp_species<-spcover %>% 
   select(scientific_name) %>%
@@ -352,7 +382,8 @@ ggplot(trnk %>%
   theme(text=element_text(size = 9),
         axis.text.x = element_text(face = "italic",
                                    angle = 15)) +
-  scale_color_viridis(option="viridis", discrete = TRUE, direction = -1)
+  scale_color_manual(values = c("#7570b3", "#d95f02", "#1b9e77"))
+
 ggsave("figs/treeDBH_by species.tiff",  width = 6.5, height = 4, units = "in" )
 
 #tree dbh by reach and distance from water's edge
