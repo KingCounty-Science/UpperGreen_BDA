@@ -334,10 +334,14 @@ trnk %>% select(scientific_name, common_name) %>% unique()
 
 #what were the trunk sizes for plots in the 20-ft area?
 #excluding saplings
-near20<-trnk %>% select(scientific_name, dbh_inches, dbh_inches_num, dist) %>% filter(dist == "20" & dbh_inches != "sapling")
+near20<- trnk %>% select(scientific_name, dbh_inches, dbh_inches_num, dist) %>% filter(dist == "20" & dbh_inches != "sapling")
 
-# number of saplings
-trnk %>% select(scientific_name, dbh_inches, dbh_inches_num, dist) %>% filter(dist == "20" & dbh_inches == "sapling")
+# number of saplings along water's edge
+trnk %>% 
+  select(scientific_name, dbh_inches, dbh_inches_num, sapling_count, dist) %>% 
+  filter(dist == "20" & dbh_inches == "sapling") %>% 
+  group_by(scientific_name) %>% 
+  summarise(saps = sum(sapling_count))
 
 near20 %>% 
   summarise(frq = n(), 
@@ -345,12 +349,13 @@ near20 %>%
             median_trunk = median(dbh_inches_num))
 
 ggplot(near20, aes(x = dbh_inches_num, fill = scientific_name)) +
-  geom_histogram() +
+  geom_histogram(binwidth = 2, boundary = 0, closed = "left") +
   theme_minimal() +
   scale_fill_viridis(option="viridis", discrete = TRUE, direction = -1) +
   labs(x = "d.b.h. (inches)",
+       y = "number of trees",
        fill = "Scientific name") +
-  scale_y_continuous(breaks = seq(0, 9, 3), limits = c(0, 9))
+  scale_y_continuous(breaks = seq(0, 10, 2), limits = c(0, 10))
 
 ggsave("figs/treeDBH_20m_hist.tiff",  width = 6.5, height = 2.5, units = "in" )
 range(trnk$dbh_inches_num) 
@@ -412,7 +417,36 @@ trnk %>%
   summarise(tot_saps = sum(sapling_count)) %>% 
   filter(tot_saps > 5)
 
-### Total Cover ####
+## Trunk diameter statistics ####
+
+#did the trunk diameters vary according to distance from water's edge overall?
+#single factor anova
+# I need to turn the distance into a factor. 
+fact_dbh_dist <- trnk %>% 
+  filter(dbh_inches != "sapling") %>% 
+  select(dist, dbh_inches_num, scientific_name, reach) %>% 
+  mutate(dist_fct = as_factor(dist))
+
+#rename as factor terms
+fact_dbh_dist$dist_fct_name <- recode(fact_dbh_dist$dist_fct, "20" = "near", 
+                       "75" = "mid",
+                       "130" = "far")
+
+#anova with distance as numeric
+aov_dist <- aov(formula = dbh_inches_num ~ dist, data = fact_dbh_dist )
+summary(aov_dist)
+
+#anova with distance as factor
+aov_dist_fact <- aov(formula = dbh_inches_num ~ dist_fct_name, data = fact_dbh_dist)
+summary(aov_dist_fact)
+
+#anova with reach as a factor
+aov_reach <- aov(formula = dbh_inches_num ~ reach, data = fact_dbh_dist )
+summary(aov_reach)
+## Tukey to compare
+TukeyHSD(aov_reach, conf.level = .95)
+
+# Total Cover ####
 plot_info <-spcover %>% select(plot_id, region, reach, question, treatment, transect, dist, circle_name) %>% unique()
 
 totcov_df %>%
