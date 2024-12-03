@@ -1,9 +1,9 @@
-scientific_name,frq,min_trunk,max_trunk,ave_trunk
-Abies amabilis,49,1,43,14.06530612244898
-Alnus rubra,14,1,22,9.75
-Picea sitchensis,2,0.5,5,2.75
-Prunus sp.,1,4,4,4
-Pseudotsuga menziesii,64,10,58,38.07265625
-Taxus brevifolia,1,7,7,7
-Thuja plicata,30,0.25,43.5,21.723333333333333
-Tsuga heterophylla,176,0.25,65,9.804829545454545
+scientific_name,frq,min_trunk,max_trunk,mean_trunk,median_trunk
+Abies amabilis,49,1,43,14.06530612244898,14
+Alnus rubra,14,1,22,9.75,10
+Picea sitchensis,2,0.5,5,2.75,2.75
+Prunus sp.,1,4,4,4,4
+Pseudotsuga menziesii,64,10,58,38.07265625,38
+Taxus brevifolia,1,7,7,7,7
+Thuja plicata,30,0.25,43.5,21.723333333333333,17.3
+Tsuga heterophylla,176,0.25,65,9.804829545454545,4.9

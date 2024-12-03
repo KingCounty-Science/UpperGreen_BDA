@@ -1,5 +1,5 @@
-reach,Alnus rubra,Rubus spectabilis,Thuja plicata,one,two,three,tot
-BDAEast,5,18,7,11,8,1,20
-BDAwest,4,21,5,12,9,NA,21
-WillowNorth,1,3,10,10,2,NA,12
-WillowSouth,2,18,13,9,9,2,19
+reach,Alnus rubra,Polystichum munitum,Rubus spectabilis,Thuja plicata,one,two,three,four,tot
+BDAEast,5,22,18,7,3,9,9,1,22
+BDAwest,4,19,21,5,3,11,8,0,22
+WillowNorth,1,23,3,10,11,10,2,0,23
+WillowSouth,2,23,18,13,3,9,9,2,23
