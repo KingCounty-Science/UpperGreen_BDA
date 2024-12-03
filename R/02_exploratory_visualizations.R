@@ -107,25 +107,33 @@ spcover %>%
   group_by(reach) %>% 
   summarise(freq = n()) 
 
+spcover %>% 
+  filter(scientific_name == "Polystichum munitum") %>%
+  group_by(reach) %>% 
+  summarise(freq = n()) 
+
 bevpref_tbl<-spcover %>% 
   filter(scientific_name == "Alnus rubra"|
            scientific_name == "Thuja plicata" |
-           scientific_name == "Rubus spectabilis") %>%
+           scientific_name == "Rubus spectabilis" | 
+           scientific_name == "Polystichum munitum") %>%
   group_by(reach, scientific_name) %>% 
   summarise(freq = n()) %>%
   pivot_wider(names_from = scientific_name, values_from = freq)
 
-overlap_tle <-spcover %>% 
+overlap_tle <- spcover %>% 
   filter(scientific_name == "Alnus rubra"|
            scientific_name == "Thuja plicata" |
-           scientific_name == "Rubus spectabilis") %>%
+           scientific_name == "Rubus spectabilis"| 
+           scientific_name == "Polystichum munitum") %>%
   group_by(reach, plot_id) %>% 
   summarise(freq = n()) %>% 
   group_by(reach, freq) %>% 
   summarise(freq2 = n()) %>% 
   pivot_wider(names_from = freq, values_from = freq2) %>% 
-  rename("one" = "1","two" = "2","three" = "3") %>% 
-  mutate(tot = one + two + !is.na(three))
+  rename("one" = "1","two" = "2","three" = "3", "four" = "4") %>% 
+  replace(is.na(.), 0) %>% 
+  mutate(tot = sum(c(one, two, three,four)))
   
 
 bevpref <- (left_join(bevpref_tbl, overlap_tle, by = "reach" ))
@@ -257,7 +265,7 @@ treelist<-spcover %>%
   summarise(freq = n()) %>% 
   drop_na() %>% 
   pull(scientific_name )
-#there are only 8 trees, so we could filter for these 
+#there are only 9 trees, so we could filter for these 
 spcover_trees<-spcover %>% 
   filter(scientific_name %in% treelist)
 
@@ -352,8 +360,8 @@ ggplot(near20, aes(x = dbh_inches_num, fill = scientific_name)) +
   geom_histogram(binwidth = 2, boundary = 0, closed = "left") +
   theme_minimal() +
   scale_fill_viridis(option="viridis", discrete = TRUE, direction = -1) +
-  labs(x = "d.b.h. (inches)",
-       y = "number of trees",
+  labs(x = "D.B.H. (inches)",
+       y = "Number of trees",
        fill = "Scientific name") +
   scale_y_continuous(breaks = seq(0, 10, 2), limits = c(0, 10))
 
