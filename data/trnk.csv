@@ -6,10 +6,10 @@ CCNWTB020,ABAM,13.4,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,B020,13.4
 CCNWTB075,TSHE,9.1999999999999993,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,B075,9.2,75,WillowNorth,Willow,yes,B
 CCNWTB075,TSHE,32.700000000000003,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,B075,32.7,75,WillowNorth,Willow,yes,B
 CCNWTB075,ABAM,20.5,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,B075,20.5,75,WillowNorth,Willow,yes,B
-CCNWTB075,PSME,46.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,B075,46.5,75,WillowNorth,Willow,yes,B
-CCNWTB075,PSME,36.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,B075,36.5,75,WillowNorth,Willow,yes,B
-CCNWTB130,PSME,31,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,B130,31,130,WillowNorth,Willow,yes,B
-CCNWTB130,PSME,16.600000000000001,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,B130,16.6,130,WillowNorth,Willow,yes,B
+CCNWTB075,PSME,46.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,B075,46.5,75,WillowNorth,Willow,yes,B
+CCNWTB075,PSME,36.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,B075,36.5,75,WillowNorth,Willow,yes,B
+CCNWTB130,PSME,31,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,B130,31,130,WillowNorth,Willow,yes,B
+CCNWTB130,PSME,16.600000000000001,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,B130,16.6,130,WillowNorth,Willow,yes,B
 CCNWTB130,TABR,7,NA,NA,Taxus brevifolia,Pacific yew,tree,NA,NA,B130,7,130,WillowNorth,Willow,yes,B
 CCNWTB130,ABAM,8,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,B130,8,130,WillowNorth,Willow,yes,B
 CCNWTB130,ABAM,7,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,B130,7,130,WillowNorth,Willow,yes,B
@@ -17,27 +17,27 @@ CCEBCG020,TSHE,26.1,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G020,26.
 CCEBCG020,THPL,17.600000000000001,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,G020,17.6,20,BDAEast,BDA,no,G
 CCEBCG020,THPL,5,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,G020,5,20,BDAEast,BDA,no,G
 CCEBCG075,TSHE,0.75,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,0.75,75,BDAEast,BDA,no,G
-CCEBCG075,PSME,48.7,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,G075,48.7,75,BDAEast,BDA,no,G
+CCEBCG075,PSME,48.7,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,G075,48.7,75,BDAEast,BDA,no,G
 CCEBCG130,TABR,sapling,1,NA,Taxus brevifolia,Pacific yew,tree,NA,NA,G130,0.25,130,BDAEast,BDA,no,G
 CCEBCG130,TSHE,12,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G130,12,130,BDAEast,BDA,no,G
 CCEBCG130,TSHE,9.6999999999999993,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G130,9.7,130,BDAEast,BDA,no,G
-CCEBCG130,PSME,10,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,G130,10,130,BDAEast,BDA,no,G
+CCEBCG130,PSME,10,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,G130,10,130,BDAEast,BDA,no,G
 CCEBCH020,THPL,38.299999999999997,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,H020,38.3,20,BDAEast,BDA,no,H
 CCEBCH020,THPL,28.5,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,H020,28.5,20,BDAEast,BDA,no,H
-CCEBCH075,PSME,31.7,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,H075,31.7,75,BDAEast,BDA,no,H
+CCEBCH075,PSME,31.7,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,H075,31.7,75,BDAEast,BDA,no,H
 CCEBCH075,TSHE,sapling,1,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H075,0.25,75,BDAEast,BDA,no,H
 CCEBCH130,TSHE,sapling,1,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H130,0.25,130,BDAEast,BDA,no,H
 CCEBCH130,TSHE,sapling,1,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H130,0.25,130,BDAEast,BDA,no,H
 CCNWTA020,TSHE,3,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,A020,3,20,WillowNorth,Willow,yes,A
 CCNWTA020,TSHE,1,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,A020,1,20,WillowNorth,Willow,yes,A
 CCNWTA020,THPL,38.5,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,A020,38.5,20,WillowNorth,Willow,yes,A
-CCNWTA075,PSME,42,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,A075,42,75,WillowNorth,Willow,yes,A
+CCNWTA075,PSME,42,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,A075,42,75,WillowNorth,Willow,yes,A
 CCNWTA075,ABAM,5,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,A075,5,75,WillowNorth,Willow,yes,A
 CCNWTA130,TSHE,5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,A130,5,130,WillowNorth,Willow,yes,A
 CCNWTA130,THPL,15,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,A130,15,130,WillowNorth,Willow,yes,A
 CCEBCE075,TSHE,27,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,27,75,BDAEast,BDA,no,E
 CCEBCE075,TSHE,3,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,3,75,BDAEast,BDA,no,E
-CCEBCE130,PSME,37,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,E130,37,130,BDAEast,BDA,no,E
+CCEBCE130,PSME,37,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,E130,37,130,BDAEast,BDA,no,E
 CCEBCE130,THPL,13.7,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,E130,13.7,130,BDAEast,BDA,no,E
 CCEBCE130,TSHE,1,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E130,1,130,BDAEast,BDA,no,E
 CCEBCE130,TSHE,2,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E130,2,130,BDAEast,BDA,no,E
@@ -47,8 +47,8 @@ CCEBCF020,TSHE,34.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F020,34.
 CCEBCF075,ALRU,sapling,1,NA,Alnus rubra,red alder,tree,NA,NA,F075,0.25,75,BDAEast,BDA,no,F
 CCEBCF075,THPL,sapling,1,NA,Thuja plicata,western redcedar,tree,NA,NA,F075,0.25,75,BDAEast,BDA,no,F
 CCEBCF075,TSHE,31.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F075,31.5,75,BDAEast,BDA,no,F
-CCEBCF130,PSME,37.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,F130,37.5,130,BDAEast,BDA,no,F
-CCEBCF130,PSME,49.3,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,F130,49.3,130,BDAEast,BDA,no,F
+CCEBCF130,PSME,37.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,F130,37.5,130,BDAEast,BDA,no,F
+CCEBCF130,PSME,49.3,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,F130,49.3,130,BDAEast,BDA,no,F
 CCEBCF130,TSHE,0.75,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F130,0.75,130,BDAEast,BDA,no,F
 CCEBCF130,TSHE,0.75,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F130,0.75,130,BDAEast,BDA,no,F
 CCEBCF130,TSHE,5.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F130,5.5,130,BDAEast,BDA,no,F
@@ -63,7 +63,7 @@ CCEBTC020,ALRU,14.5,NA,NA,Alnus rubra,red alder,tree,NA,NA,C020,14.5,20,BDAEast,
 CCEBTC075,ABAM,18,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,C075,18,75,BDAEast,BDA,yes,C
 CCEBTC075,ABAM,7.7,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,C075,7.7,75,BDAEast,BDA,yes,C
 CCEBTC075,ABAM,22,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,C075,22,75,BDAEast,BDA,yes,C
-CCEBTC075,PISI,5,NA,NA,Picea sitchensis,sitka spruce,tree,NA,NA,C075,5,75,BDAEast,BDA,yes,C
+CCEBTC075,PISI,5,NA,NA,Picea sitchensis,Sitka spruce,tree,NA,NA,C075,5,75,BDAEast,BDA,yes,C
 CCEBTC075,TSHE,7.9,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C075,7.9,75,BDAEast,BDA,yes,C
 CCEBTC075,TSHE,7.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C075,7.5,75,BDAEast,BDA,yes,C
 CCEBTC130,ABAM,19.100000000000001,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,C130,19.1,130,BDAEast,BDA,yes,C
@@ -98,42 +98,42 @@ CCEBTD020,ABAM,19.5,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,D020,19.5
 CCEBTD020,ABAM,20.5,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,D020,20.5,20,BDAEast,BDA,yes,D
 CCEBTD075,ABAM,11.3,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,D075,11.3,75,BDAEast,BDA,yes,D
 CCEBTD075,TSHE,16.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,D075,16.5,75,BDAEast,BDA,yes,D
-CCNWTD020,PSME,36.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,D020,36.5,20,WillowNorth,Willow,yes,D
-CCNWTD020,PSME,39.9,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,D020,39.9,20,WillowNorth,Willow,yes,D
+CCNWTD020,PSME,36.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,D020,36.5,20,WillowNorth,Willow,yes,D
+CCNWTD020,PSME,39.9,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,D020,39.9,20,WillowNorth,Willow,yes,D
 CCNWTD020,TSHE,sapling,1,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,D020,0.25,20,WillowNorth,Willow,yes,D
 CCNWTD020,TSHE,32,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,D020,32,20,WillowNorth,Willow,yes,D
 CCNWTD020,TSHE,10,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,D020,10,20,WillowNorth,Willow,yes,D
 CCNWTD020,TSHE,5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,D020,5,20,WillowNorth,Willow,yes,D
 CCNWTD075,ABAM,20.7,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,D075,20.7,75,WillowNorth,Willow,yes,D
-CCNWTD075,PSME,49,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,D075,49,75,WillowNorth,Willow,yes,D
-CCNWTD075,PSME,31.2,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,D075,31.2,75,WillowNorth,Willow,yes,D
+CCNWTD075,PSME,49,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,D075,49,75,WillowNorth,Willow,yes,D
+CCNWTD075,PSME,31.2,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,D075,31.2,75,WillowNorth,Willow,yes,D
 CCNWTD075,THPL,3.9,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,D075,3.9,75,WillowNorth,Willow,yes,D
 CCNWTD075,TSHE,sapling,4,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,D075,0.25,75,WillowNorth,Willow,yes,D
 CCNWTD075,TSHE,13.7,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,D075,13.7,75,WillowNorth,Willow,yes,D
-CCNWTC020,PSME,38.4,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,C020,38.4,20,WillowNorth,Willow,yes,C
+CCNWTC020,PSME,38.4,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,C020,38.4,20,WillowNorth,Willow,yes,C
 CCNWTC020,TSHE,sapling,1,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C020,0.25,20,WillowNorth,Willow,yes,C
-CCNWTC130,PSME,30.1,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,C130,30.1,130,WillowNorth,Willow,yes,C
-CCNWTC130,PSME,30.1,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,C130,30.1,130,WillowNorth,Willow,yes,C
-CCNWTC130,PSME,45.8,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,C130,45.8,130,WillowNorth,Willow,yes,C
+CCNWTC130,PSME,30.1,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,C130,30.1,130,WillowNorth,Willow,yes,C
+CCNWTC130,PSME,30.1,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,C130,30.1,130,WillowNorth,Willow,yes,C
+CCNWTC130,PSME,45.8,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,C130,45.8,130,WillowNorth,Willow,yes,C
 CCNWTC130,TSHE,5.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C130,5.5,130,WillowNorth,Willow,yes,C
 CCNWTC130,TSHE,12.3,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C130,12.3,130,WillowNorth,Willow,yes,C
 CCNWTC130,TSHE,10.1,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C130,10.1,130,WillowNorth,Willow,yes,C
 CCNWTC130,TSHE,5.0999999999999996,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C130,5.1,130,WillowNorth,Willow,yes,C
 CCNWTC130,TSHE,4.9000000000000004,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C130,4.9,130,WillowNorth,Willow,yes,C
-CCNWCG020,PSME,32.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,G020,32.5,20,WillowNorth,Willow,no,G
+CCNWCG020,PSME,32.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,G020,32.5,20,WillowNorth,Willow,no,G
 CCNWCG020,TSHE,sapling,5,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G020,0.25,20,WillowNorth,Willow,no,G
 CCNWCG020,TSHE,6.7,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G020,6.7,20,WillowNorth,Willow,no,G
 CCNWCG020,TSHE,12.6,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G020,12.6,20,WillowNorth,Willow,no,G
 CCNWCG075,ABAM,43,NA,NA,Abies amabilis,Pacific silver fir,tree,NA,NA,G075,43,75,WillowNorth,Willow,no,G
-CCNWCG075,PSME,36.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,G075,36.5,75,WillowNorth,Willow,no,G
+CCNWCG075,PSME,36.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,G075,36.5,75,WillowNorth,Willow,no,G
 CCNWCG075,THPL,7.6,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,G075,7.6,75,WillowNorth,Willow,no,G
 CCNWCG075,TSHE,21.3,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,21.3,75,WillowNorth,Willow,no,G
 CCNWCG075,TSHE,sapling,9,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,0.25,75,WillowNorth,Willow,no,G
 CCNWCG075,TSHE,11.8,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,11.8,75,WillowNorth,Willow,no,G
-CCNWCG130,PSME,21,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,G130,21,130,WillowNorth,Willow,no,G
+CCNWCG130,PSME,21,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,G130,21,130,WillowNorth,Willow,no,G
 CCNWCG130,TSHE,22.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G130,22.5,130,WillowNorth,Willow,no,G
 CCNWCG130,TSHE,sapling,20,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,G130,0.25,130,WillowNorth,Willow,no,G
-CCNWCE130,PSME,48,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,E130,48,130,WillowNorth,Willow,no,E
+CCNWCE130,PSME,48,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,E130,48,130,WillowNorth,Willow,no,E
 CCNWCE130,THPL,6.8,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,E130,6.8,130,WillowNorth,Willow,no,E
 CCNWCE130,TSHE,sapling,2,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E130,0.25,130,WillowNorth,Willow,no,E
 CCNWCE130,TSHE,3,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E130,3,130,WillowNorth,Willow,no,E
@@ -142,7 +142,7 @@ CCNWCE130,TSHE,2,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E130,2,130,
 CCNWCE130,TSHE,4,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E130,4,130,WillowNorth,Willow,no,E
 CCNWCE130,TSHE,7.9,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E130,7.9,130,WillowNorth,Willow,no,E
 CCNWCE130,TSHE,5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E130,5,130,WillowNorth,Willow,no,E
-CCNWCE075,PSME,49.6,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,E075,49.6,75,WillowNorth,Willow,no,E
+CCNWCE075,PSME,49.6,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,E075,49.6,75,WillowNorth,Willow,no,E
 CCNWCE075,THPL,9.6,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,E075,9.6,75,WillowNorth,Willow,no,E
 CCNWCE075,TSHE,2,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,2,75,WillowNorth,Willow,no,E
 CCNWCE075,TSHE,3,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,3,75,WillowNorth,Willow,no,E
@@ -153,40 +153,40 @@ CCNWCE020,TSHE,25.1,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E020,25.
 CCNWCE020,TSHE,13.8,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E020,13.8,20,WillowNorth,Willow,no,E
 CCNWCE020,TSHE,6.3,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E020,6.3,20,WillowNorth,Willow,no,E
 CCNWCE020,TSHE,sapling,1,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,E020,0.25,20,WillowNorth,Willow,no,E
-CCNWTD130,PSME,25.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,D130,25.5,130,WillowNorth,Willow,yes,D
-CCNWTD130,PSME,23,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,D130,23,130,WillowNorth,Willow,yes,D
-CCNWTD130,PSME,23,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,D130,23,130,WillowNorth,Willow,yes,D
-CCNWTD130,PSME,37.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,D130,37.5,130,WillowNorth,Willow,yes,D
+CCNWTD130,PSME,25.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,D130,25.5,130,WillowNorth,Willow,yes,D
+CCNWTD130,PSME,23,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,D130,23,130,WillowNorth,Willow,yes,D
+CCNWTD130,PSME,23,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,D130,23,130,WillowNorth,Willow,yes,D
+CCNWTD130,PSME,37.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,D130,37.5,130,WillowNorth,Willow,yes,D
 CCNWTD130,TSHE,sapling,10,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,D130,0.25,130,WillowNorth,Willow,yes,D
 CCNWTD130,TSHE,3.9,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,D130,3.9,130,WillowNorth,Willow,yes,D
 CCNWTD130,TSHE,6.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,D130,6.5,130,WillowNorth,Willow,yes,D
-CCNWTC075,PSME,49,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,C075,49,75,WillowNorth,Willow,yes,C
+CCNWTC075,PSME,49,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,C075,49,75,WillowNorth,Willow,yes,C
 CCNWTC075,TSHE,18,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C075,18,75,WillowNorth,Willow,yes,C
 CCNWTC075,TSHE,3.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C075,3.5,75,WillowNorth,Willow,yes,C
 CCNWTC075,TSHE,12,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,C075,12,75,WillowNorth,Willow,yes,C
-CCNWCF020,PSME,58,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,F020,58,20,WillowNorth,Willow,no,F
+CCNWCF020,PSME,58,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,F020,58,20,WillowNorth,Willow,no,F
 CCNWCF020,TSHE,sapling,15,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F020,0.25,20,WillowNorth,Willow,no,F
 CCNWCF020,TSHE,2,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F020,2,20,WillowNorth,Willow,no,F
-CCNWCF075,PSME,49,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,F075,49,75,WillowNorth,Willow,no,F
-CCNWCF075,PSME,41.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,F075,41.5,75,WillowNorth,Willow,no,F
+CCNWCF075,PSME,49,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,F075,49,75,WillowNorth,Willow,no,F
+CCNWCF075,PSME,41.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,F075,41.5,75,WillowNorth,Willow,no,F
 CCNWCF075,TSHE,2,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F075,2,75,WillowNorth,Willow,no,F
-CCNWCF130,PSME,29.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,F130,29.5,130,WillowNorth,Willow,no,F
+CCNWCF130,PSME,29.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,F130,29.5,130,WillowNorth,Willow,no,F
 CCNWCF130,TSHE,sapling,10,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F130,0.25,130,WillowNorth,Willow,no,F
 CCNWCF130,TSHE,18.100000000000001,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F130,18.1,130,WillowNorth,Willow,no,F
 CCNWCF130,TSHE,11,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,F130,11,130,WillowNorth,Willow,no,F
-CCNWCH020,PSME,31,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,H020,31,20,WillowNorth,Willow,no,H
-CCNWCH020,PSME,40,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,H020,40,20,WillowNorth,Willow,no,H
-CCNWCH020,PSME,35,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,H020,35,20,WillowNorth,Willow,no,H
+CCNWCH020,PSME,31,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,H020,31,20,WillowNorth,Willow,no,H
+CCNWCH020,PSME,40,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,H020,40,20,WillowNorth,Willow,no,H
+CCNWCH020,PSME,35,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,H020,35,20,WillowNorth,Willow,no,H
 CCNWCH020,TSHE,1.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H020,1.5,20,WillowNorth,Willow,no,H
 CCNWCH020,TSHE,13,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H020,13,20,WillowNorth,Willow,no,H
 CCNWCH020,TSHE,10,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H020,10,20,WillowNorth,Willow,no,H
-CCNWCH075,PSME,39,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,H075,39,75,WillowNorth,Willow,no,H
-CCNWCH075,PSME,31.5,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,H075,31.5,75,WillowNorth,Willow,no,H
+CCNWCH075,PSME,39,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,H075,39,75,WillowNorth,Willow,no,H
+CCNWCH075,PSME,31.5,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,H075,31.5,75,WillowNorth,Willow,no,H
 CCNWCH075,THPL,14,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,H075,14,75,WillowNorth,Willow,no,H
 CCNWCH075,THPL,19.5,NA,NA,Thuja plicata,western redcedar,tree,NA,NA,H075,19.5,75,WillowNorth,Willow,no,H
 CCNWCH075,TSHE,19,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H075,19,75,WillowNorth,Willow,no,H
 CCNWCH075,TSHE,1,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H075,1,75,WillowNorth,Willow,no,H
-CCNWCH130,PSME,33,NA,NA,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,H130,33,130,WillowNorth,Willow,no,H
+CCNWCH130,PSME,33,NA,NA,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,H130,33,130,WillowNorth,Willow,no,H
 CCNWCH130,TSHE,sapling,25,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H130,0.25,130,WillowNorth,Willow,no,H
 CCNWCH130,TSHE,0.25,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H130,0.25,130,WillowNorth,Willow,no,H
 CCNWCH130,TSHE,0.5,NA,NA,Tsuga heterophylla,western hemlock,tree,NA,NA,H130,0.5,130,WillowNorth,Willow,no,H
@@ -206,8 +206,8 @@ CCWBTB075,ABAM,22.5,NA,31,Abies amabilis,Pacific silver fir,tree,NA,NA,B075,22.5
 CCWBTB075,TSHE,2.5,NA,31,Tsuga heterophylla,western hemlock,tree,NA,NA,B075,2.5,75,BDAwest,BDA,yes,B
 CCWBTB075,TSHE,1.5,NA,31,Tsuga heterophylla,western hemlock,tree,NA,NA,B075,1.5,75,BDAwest,BDA,yes,B
 CCWBTB075,TSHE,1.5,NA,31,Tsuga heterophylla,western hemlock,tree,NA,NA,B075,1.5,75,BDAwest,BDA,yes,B
-CCWBCF130,PSME,43,NA,32,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,F130,43,130,BDAwest,BDA,no,F
-CCWBCF130,PSME,31,NA,32,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,F130,31,130,BDAwest,BDA,no,F
+CCWBCF130,PSME,43,NA,32,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,F130,43,130,BDAwest,BDA,no,F
+CCWBCF130,PSME,31,NA,32,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,F130,31,130,BDAwest,BDA,no,F
 CCWBCF130,TSHE,2.5,NA,32,Tsuga heterophylla,western hemlock,tree,NA,NA,F130,2.5,130,BDAwest,BDA,no,F
 CCWBCF130,TSHE,8,NA,32,Tsuga heterophylla,western hemlock,tree,NA,NA,F130,8,130,BDAwest,BDA,no,F
 CCWBCF130,TSHE,0.75,NA,32,Tsuga heterophylla,western hemlock,tree,NA,NA,F130,0.75,130,BDAwest,BDA,no,F
@@ -224,8 +224,8 @@ CCWBCF075,TSHE,3,NA,32,Tsuga heterophylla,western hemlock,tree,NA,NA,F075,3,75,B
 CCWBCF075,TSHE,51,NA,32,Tsuga heterophylla,western hemlock,tree,NA,NA,F075,51,75,BDAwest,BDA,no,F
 CCWBCF075,TSHE,8.25,NA,32,Tsuga heterophylla,western hemlock,tree,NA,NA,F075,8.25,75,BDAwest,BDA,no,F
 CCWBCH020,TSHE,23,NA,33,Tsuga heterophylla,western hemlock,tree,NA,NA,H020,23,20,BDAwest,BDA,no,H
-CCWBCH075,PSME,52,NA,33,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,H075,52,75,BDAwest,BDA,no,H
-CCWBCH075,PSME,23.5,NA,33,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,H075,23.5,75,BDAwest,BDA,no,H
+CCWBCH075,PSME,52,NA,33,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,H075,52,75,BDAwest,BDA,no,H
+CCWBCH075,PSME,23.5,NA,33,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,H075,23.5,75,BDAwest,BDA,no,H
 CCWBCH075,TSHE,3,NA,33,Tsuga heterophylla,western hemlock,tree,NA,NA,H075,3,75,BDAwest,BDA,no,H
 CCWBCH075,TSHE,4.5,NA,33,Tsuga heterophylla,western hemlock,tree,NA,NA,H075,4.5,75,BDAwest,BDA,no,H
 CCWBCH075,TSHE,1.75,NA,33,Tsuga heterophylla,western hemlock,tree,NA,NA,H075,1.75,75,BDAwest,BDA,no,H
@@ -247,7 +247,7 @@ CCWBCG075,TSHE,15,NA,37,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,15,75
 CCWBCG075,TSHE,47,NA,37,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,47,75,BDAwest,BDA,no,G
 CCWBCG075,TSHE,52,NA,37,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,52,75,BDAwest,BDA,no,G
 CCWBCG075,TSHE,sapling,10,37,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,0.25,75,BDAwest,BDA,no,G
-CCWBCG130,PSME,40,NA,38,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,G130,40,130,BDAwest,BDA,no,G
+CCWBCG130,PSME,40,NA,38,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,G130,40,130,BDAwest,BDA,no,G
 CCWBCG130,TSHE,27,NA,38,Tsuga heterophylla,western hemlock,tree,NA,NA,G130,27,130,BDAwest,BDA,no,G
 CCWBCG130,TSHE,8,NA,38,Tsuga heterophylla,western hemlock,tree,NA,NA,G130,8,130,BDAwest,BDA,no,G
 CCWBCG130,TSHE,36,NA,38,Tsuga heterophylla,western hemlock,tree,NA,NA,G130,36,130,BDAwest,BDA,no,G
@@ -288,47 +288,47 @@ CCWBTA130,TSHE,22,NA,42,Tsuga heterophylla,western hemlock,tree,NA,NA,A130,22,13
 CCWBTA130,TSHE,19,NA,42,Tsuga heterophylla,western hemlock,tree,NA,NA,A130,19,130,BDAwest,BDA,yes,A
 CCSWTA020,THPL,8,NA,43,Thuja plicata,western redcedar,tree,NA,NA,A020,8,20,WillowSouth,Willow,yes,A
 CCSWTA020,TSHE,14,NA,43,Tsuga heterophylla,western hemlock,tree,NA,NA,A020,14,20,WillowSouth,Willow,yes,A
-CCSWTA075,PSME,32,NA,43,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,A075,32,75,WillowSouth,Willow,yes,A
-CCSWTA075,PSME,38,NA,43,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,A075,38,75,WillowSouth,Willow,yes,A
+CCSWTA075,PSME,32,NA,43,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,A075,32,75,WillowSouth,Willow,yes,A
+CCSWTA075,PSME,38,NA,43,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,A075,38,75,WillowSouth,Willow,yes,A
 CCSWTA075,THPL,22,NA,43,Thuja plicata,western redcedar,tree,NA,NA,A075,22,75,WillowSouth,Willow,yes,A
 CCSWTA075,THPL,4,NA,43,Thuja plicata,western redcedar,tree,NA,NA,A075,4,75,WillowSouth,Willow,yes,A
 CCSWTA075,THPL,7,NA,43,Thuja plicata,western redcedar,tree,NA,NA,A075,7,75,WillowSouth,Willow,yes,A
 CCSWTA075,THPL,17,NA,43,Thuja plicata,western redcedar,tree,NA,NA,A075,17,75,WillowSouth,Willow,yes,A
 CCSWTA075,TSHE,25,NA,43,Tsuga heterophylla,western hemlock,tree,NA,NA,A075,25,75,WillowSouth,Willow,yes,A
-CCSWTA130,PSME,47,NA,44,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,A130,47,130,WillowSouth,Willow,yes,A
-CCSWTA130,PSME,42,NA,44,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,A130,42,130,WillowSouth,Willow,yes,A
+CCSWTA130,PSME,47,NA,44,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,A130,47,130,WillowSouth,Willow,yes,A
+CCSWTA130,PSME,42,NA,44,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,A130,42,130,WillowSouth,Willow,yes,A
 CCSWTA130,TSHE,3,NA,44,Tsuga heterophylla,western hemlock,tree,NA,NA,A130,3,130,WillowSouth,Willow,yes,A
 CCSWTA130,TSHE,2,NA,44,Tsuga heterophylla,western hemlock,tree,NA,NA,A130,2,130,WillowSouth,Willow,yes,A
 CCSWTA130,TSHE,2,NA,44,Tsuga heterophylla,western hemlock,tree,NA,NA,A130,2,130,WillowSouth,Willow,yes,A
 CCSWTA130,TSHE,7,NA,44,Tsuga heterophylla,western hemlock,tree,NA,NA,A130,7,130,WillowSouth,Willow,yes,A
 CCSWTA130,TSHE,3,NA,44,Tsuga heterophylla,western hemlock,tree,NA,NA,A130,3,130,WillowSouth,Willow,yes,A
-CCSWTC130,PSME,56,NA,44,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,C130,56,130,WillowSouth,Willow,yes,C
+CCSWTC130,PSME,56,NA,44,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,C130,56,130,WillowSouth,Willow,yes,C
 CCSWTC130,TSHE,sapling,5,44,Tsuga heterophylla,western hemlock,tree,NA,NA,C130,0.25,130,WillowSouth,Willow,yes,C
 CCSWTC130,TSHE,14,NA,44,Tsuga heterophylla,western hemlock,tree,NA,NA,C130,14,130,WillowSouth,Willow,yes,C
 CCSWTC130,TSHE,3,NA,44,Tsuga heterophylla,western hemlock,tree,NA,NA,C130,3,130,WillowSouth,Willow,yes,C
-CCSWTC075,PSME,44,NA,45,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,C075,44,75,WillowSouth,Willow,yes,C
-CCSWTC075,PSME,57,NA,45,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,C075,57,75,WillowSouth,Willow,yes,C
+CCSWTC075,PSME,44,NA,45,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,C075,44,75,WillowSouth,Willow,yes,C
+CCSWTC075,PSME,57,NA,45,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,C075,57,75,WillowSouth,Willow,yes,C
 CCSWTC075,THPL,41,NA,45,Thuja plicata,western redcedar,tree,NA,NA,C075,41,75,WillowSouth,Willow,yes,C
 CCSWTC075,TSHE,2,NA,45,Tsuga heterophylla,western hemlock,tree,NA,NA,C075,2,75,WillowSouth,Willow,yes,C
 CCSWTC075,TSHE,1,NA,45,Tsuga heterophylla,western hemlock,tree,NA,NA,C075,1,75,WillowSouth,Willow,yes,C
 CCSWTC020,THPL,41,NA,45,Thuja plicata,western redcedar,tree,NA,NA,C020,41,20,WillowSouth,Willow,yes,C
 CCSWTB020,TSHE,65,NA,49,Tsuga heterophylla,western hemlock,tree,NA,NA,B020,65,20,WillowSouth,Willow,yes,B
-CCSWTB075,PSME,33.25,NA,49,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,B075,33.25,75,WillowSouth,Willow,yes,B
-CCSWTB075,PSME,54,NA,49,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,B075,54,75,WillowSouth,Willow,yes,B
+CCSWTB075,PSME,33.25,NA,49,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,B075,33.25,75,WillowSouth,Willow,yes,B
+CCSWTB075,PSME,54,NA,49,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,B075,54,75,WillowSouth,Willow,yes,B
 CCSWTB075,TSHE,0.25,NA,49,Tsuga heterophylla,western hemlock,tree,NA,NA,B075,0.25,75,WillowSouth,Willow,yes,B
 CCSWTB130,THPL,32.25,NA,50,Thuja plicata,western redcedar,tree,NA,NA,B130,32.25,130,WillowSouth,Willow,yes,B
 CCSWTD020,THPL,41,NA,51,Thuja plicata,western redcedar,tree,NA,NA,D020,41,20,WillowSouth,Willow,yes,D
 CCSWTD020,THPL,42,NA,51,Thuja plicata,western redcedar,tree,NA,NA,D020,42,20,WillowSouth,Willow,yes,D
 CCSWTD020,THPL,15.5,NA,51,Thuja plicata,western redcedar,tree,NA,NA,D020,15.5,20,WillowSouth,Willow,yes,D
-CCSWCE020,PSME,58,NA,56,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,E020,58,20,WillowSouth,Willow,no,E
+CCSWCE020,PSME,58,NA,56,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,E020,58,20,WillowSouth,Willow,no,E
 CCSWCE020,THPL,37,NA,46,Thuja plicata,western redcedar,tree,NA,NA,E020,37,20,WillowSouth,Willow,no,E
 CCSWCE020,TSHE,sapling,8,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E020,0.25,20,WillowSouth,Willow,no,E
 CCSWCE020,TSHE,4,NA,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E020,4,20,WillowSouth,Willow,no,E
 CCSWCE020,TSHE,4,NA,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E020,4,20,WillowSouth,Willow,no,E
 CCSWCE020,TSHE,7,NA,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E020,7,20,WillowSouth,Willow,no,E
 CCSWCE020,TSHE,2,NA,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E020,2,20,WillowSouth,Willow,no,E
-CCSWCE075,PSME,56,NA,46,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,E075,56,75,WillowSouth,Willow,no,E
-CCSWCE075,PSME,38,NA,46,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,E075,38,75,WillowSouth,Willow,no,E
+CCSWCE075,PSME,56,NA,46,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,E075,56,75,WillowSouth,Willow,no,E
+CCSWCE075,PSME,38,NA,46,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,E075,38,75,WillowSouth,Willow,no,E
 CCSWCE075,TSHE,sapling,12,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,0.25,75,WillowSouth,Willow,no,E
 CCSWCE075,TSHE,3,NA,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,3,75,WillowSouth,Willow,no,E
 CCSWCE075,TSHE,3,NA,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,3,75,WillowSouth,Willow,no,E
@@ -337,18 +337,18 @@ CCSWCE075,TSHE,3,NA,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,3,75,W
 CCSWCE075,TSHE,3,NA,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,3,75,WillowSouth,Willow,no,E
 CCSWCE075,TSHE,4,NA,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,4,75,WillowSouth,Willow,no,E
 CCSWCE075,TSHE,4,NA,46,Tsuga heterophylla,western hemlock,tree,NA,NA,E075,4,75,WillowSouth,Willow,no,E
-CCSWCE130,PSME,24,NA,47,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,E130,24,130,WillowSouth,Willow,no,E
-CCSWCE130,PSME,25,NA,47,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,E130,25,130,WillowSouth,Willow,no,E
-CCSWCE130,PSME,39,NA,47,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,E130,39,130,WillowSouth,Willow,no,E
-CCSWCE130,PSME,38,NA,47,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,E130,38,130,WillowSouth,Willow,no,E
+CCSWCE130,PSME,24,NA,47,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,E130,24,130,WillowSouth,Willow,no,E
+CCSWCE130,PSME,25,NA,47,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,E130,25,130,WillowSouth,Willow,no,E
+CCSWCE130,PSME,39,NA,47,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,E130,39,130,WillowSouth,Willow,no,E
+CCSWCE130,PSME,38,NA,47,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,E130,38,130,WillowSouth,Willow,no,E
 CCSWCE130,THPL,14,NA,47,Thuja plicata,western redcedar,tree,NA,NA,E130,14,130,WillowSouth,Willow,no,E
 CCSWCE130,TSHE,13,NA,47,Tsuga heterophylla,western hemlock,tree,NA,NA,E130,13,130,WillowSouth,Willow,no,E
 CCSWCE130,TSHE,sapling,9,47,Tsuga heterophylla,western hemlock,tree,NA,NA,E130,0.25,130,WillowSouth,Willow,no,E
 CCSWCG130,ABAM,2,NA,47,Abies amabilis,Pacific silver fir,tree,NA,NA,G130,2,130,WillowSouth,Willow,no,G
 CCSWCG130,TSHE,2,NA,47,Tsuga heterophylla,western hemlock,tree,NA,NA,G130,2,130,WillowSouth,Willow,no,G
 CCSWCG130,TSHE,20,NA,47,Tsuga heterophylla,western hemlock,tree,NA,NA,G130,20,130,WillowSouth,Willow,no,G
-CCSWCG075,PSME,30,NA,48,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,G075,30,75,WillowSouth,Willow,no,G
-CCSWCG075,PSME,48,NA,48,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,G075,48,75,WillowSouth,Willow,no,G
+CCSWCG075,PSME,30,NA,48,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,G075,30,75,WillowSouth,Willow,no,G
+CCSWCG075,PSME,48,NA,48,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,G075,48,75,WillowSouth,Willow,no,G
 CCSWCG075,TSHE,7,NA,48,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,7,75,WillowSouth,Willow,no,G
 CCSWCG075,TSHE,10,NA,48,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,10,75,WillowSouth,Willow,no,G
 CCSWCG075,TSHE,9,NA,48,Tsuga heterophylla,western hemlock,tree,NA,NA,G075,9,75,WillowSouth,Willow,no,G
@@ -358,13 +358,14 @@ CCSWCG020,ABAM,10,NA,48,Abies amabilis,Pacific silver fir,tree,NA,NA,G020,10,20,
 CCSWCG020,ABAM,3,NA,48,Abies amabilis,Pacific silver fir,tree,NA,NA,G020,3,20,WillowSouth,Willow,no,G
 CCSWCG020,ABAM,4,NA,48,Abies amabilis,Pacific silver fir,tree,NA,NA,G020,4,20,WillowSouth,Willow,no,G
 CCSWCG020,ABAM,sapling,1,48,Abies amabilis,Pacific silver fir,tree,NA,NA,G020,0.25,20,WillowSouth,Willow,no,G
-CCSWCG020,PSME,15,NA,48,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,G020,15,20,WillowSouth,Willow,no,G
-CCSWCG020,PSME,52,NA,48,Pseudotsuga menziesii,Douglas fir,tree,NA,NA,G020,52,20,WillowSouth,Willow,no,G
+CCSWCG020,PSME,15,NA,48,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,G020,15,20,WillowSouth,Willow,no,G
+CCSWCG020,PSME,52,NA,48,Pseudotsuga menziesii,Douglas-fir,tree,NA,NA,G020,52,20,WillowSouth,Willow,no,G
 CCSWCG020,TSHE,3,NA,48,Tsuga heterophylla,western hemlock,tree,NA,NA,G020,3,20,WillowSouth,Willow,no,G
 CCSWCG020,TSHE,sapling,5,48,Tsuga heterophylla,western hemlock,tree,NA,NA,G020,0.25,20,WillowSouth,Willow,no,G
 CCSWCF020,TSHE,30,NA,53,Tsuga heterophylla,western hemlock,tree,NA,NA,F020,30,20,WillowSouth,Willow,no,F
 CCSWCF020,TSHE,3.25,NA,53,Tsuga heterophylla,western hemlock,tree,NA,NA,F020,3.25,20,WillowSouth,Willow,no,F
-CCSWCF075,PISI,0.5,NA,53,Picea sitchensis,sitka spruce,tree,NA,NA,F075,0.5,75,WillowSouth,Willow,no,F
+CCSWCF075,PISI,0.5,NA,53,Picea sitchensis,Sitka spruce,tree,NA,NA,F075,0.5,75,WillowSouth,Willow,no,F
 CCSWCH075,THPL,0.25,NA,54,Thuja plicata,western redcedar,tree,NA,NA,H075,0.25,75,WillowSouth,Willow,no,H
 CCSWCH020,THPL,43.5,NA,56,Thuja plicata,western redcedar,tree,NA,NA,H020,43.5,20,WillowSouth,Willow,no,H
 CCSWCH020,THPL,34.799999999999997,NA,56,Thuja plicata,western redcedar,tree,NA,NA,H020,34.8,20,WillowSouth,Willow,no,H
+CCEBTB075,FRPU,sapling,1,added during report writing per email conversation with staff Dec 2024,Frangula purshiana,cascara,tree,NA,NA,B075,0.25,75,BDAEast,BDA,yes,B

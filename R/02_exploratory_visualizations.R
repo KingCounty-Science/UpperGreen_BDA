@@ -322,11 +322,6 @@ ggplot(spcover, aes(x = "", y = percent_cover_num, fill = common_name)) +
   geom_col() +
   facet_grid(cols = vars(reach), vars(transect))
 
-#geom_col adds up th
-ggplot(spcover, aes(x = plot_id, y = percent_cover_num, fill = common_name)) + 
-  geom_col() +
-  facet_grid(cols = vars(reach), vars(dist()))
-
 # I think this could be a good place for patchwork. I make 4 sets of 24 charts then combine.
 
 ggplot(data = spcover %>% filter(reach == "WillowNorth"), 
@@ -366,6 +361,7 @@ ggplot(sap.dat, aes(fill=scientific_name, y=seedlings, x=dist_fact)) +
   geom_bar(stat="identity", width=0.5) +
   theme_minimal() + 
   scale_fill_manual(values = eightcolors[c(8,7,6,3,2,1)]) +
+  scale_y_continuous(breaks = seq(0, 90, 20)) +
   labs(x = "Distance from water's edge (ft)",
        y = "Number of seedlings",
        fill = "Scientific name") +
@@ -382,7 +378,7 @@ ggplot(near20, aes(x = dbh_inches_num, fill = scientific_name)) +
   geom_histogram(binwidth = 2, boundary = 0, closed = "left") +
   theme_minimal() +
   scale_fill_manual(values = eightcolors[c(8,7,5,4,2,1)]) +
-  labs(x = "D.B.H. (inches)",
+  labs(x = "DBH (inches)",
        y = "Number of trees",
        fill = "Scientific name") +
   scale_y_continuous(breaks = seq(0, 10, 2), limits = c(0, 10)) +
@@ -428,7 +424,7 @@ ggplot(trnk %>%
        aes(x = dist,  y = dbh_inches_num)) + 
   geom_boxplot(aes(group = cut_width(dist, 50))) + # I need this line otherwise it blends the numeric data
   geom_jitter(width =3, alpha = .3, color = "#0A6522") +
-  labs(y = "d.b.h. (inches)",
+  labs(y = "DBH (inches)",
        x = "Distance from water's edge (ft) ") +
   scale_x_continuous(breaks=(c(20, 75, 130))) +
   facet_grid(~reach)+
