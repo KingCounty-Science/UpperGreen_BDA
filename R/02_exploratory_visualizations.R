@@ -344,12 +344,34 @@ trnk %>% select(scientific_name, common_name) %>% unique()
 #excluding saplings
 near20<- trnk %>% select(scientific_name, dbh_inches, dbh_inches_num, dist) %>% filter(dist == "20" & dbh_inches != "sapling")
 
-# number of saplings along water's edge
+### number of saplings along water's edge ####
 trnk %>% 
   select(scientific_name, dbh_inches, dbh_inches_num, sapling_count, dist) %>% 
   filter(dist == "20" & dbh_inches == "sapling") %>% 
   group_by(scientific_name) %>% 
   summarise(saps = sum(sapling_count))
+
+# saplings total plot ####
+
+eightcolors <- c(viridis::viridis(n = 8))
+
+trnk$dist_fact <- as.factor(trnk$dist)
+sap.dat <-trnk %>% 
+  select(scientific_name, dbh_inches, sapling_count, dist_fact) %>% 
+  filter(dbh_inches == "sapling") %>% 
+  group_by(scientific_name, dist_fact) %>% 
+  summarise(seedlings = sum(sapling_count))
+
+ggplot(sap.dat, aes(fill=scientific_name, y=seedlings, x=dist_fact)) + 
+  geom_bar(stat="identity", width=0.5) +
+  theme_minimal() + 
+  scale_fill_manual(values = eightcolors[c(8,7,6,3,2,1)]) +
+  labs(x = "Distance from water's edge (ft)",
+       y = "Number of seedlings",
+       fill = "Scientific name") +
+  theme(legend.text = element_text(face = "italic")) 
+
+ggsave("figs/seedlings_bar.tiff",  width = 4, height = 4, units = "in" )
 
 near20 %>% 
   summarise(frq = n(), 
@@ -359,11 +381,12 @@ near20 %>%
 ggplot(near20, aes(x = dbh_inches_num, fill = scientific_name)) +
   geom_histogram(binwidth = 2, boundary = 0, closed = "left") +
   theme_minimal() +
-  scale_fill_viridis(option="viridis", discrete = TRUE, direction = -1) +
+  scale_fill_manual(values = eightcolors[c(8,7,5,4,2,1)]) +
   labs(x = "D.B.H. (inches)",
        y = "Number of trees",
        fill = "Scientific name") +
-  scale_y_continuous(breaks = seq(0, 10, 2), limits = c(0, 10))
+  scale_y_continuous(breaks = seq(0, 10, 2), limits = c(0, 10)) +
+  theme(legend.text = element_text(face = "italic")) 
 
 ggsave("figs/treeDBH_20m_hist.tiff",  width = 6.5, height = 2.5, units = "in" )
 range(trnk$dbh_inches_num) 
@@ -378,7 +401,7 @@ trunk_sizes<-trnk %>%
 trunk_sizes
 write_csv(trunk_sizes, "data/trunk_summary.csv")
 
-trnk$dist_fact <- as.factor(trnk$dist)
+
 
 ggplot(trnk %>% 
          filter(dbh_inches != "sapling"), 
